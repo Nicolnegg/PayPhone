@@ -1,8 +1,17 @@
-import {Sequelize} from 'sequelize'
+import mysql from "mysql";
 
-const db= new Sequelize('database_payphone','root','',{
-    host:'localhost',
-    dialect: 'mysql'
-})
+const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "database_payphone"
+});
 
-export default db
+connection.connect((error) => {
+    if (error){
+        console.log(`Conexion error a la base de datos es: ${error}`)
+    }
+    console.log('Conexion Exitosa a la base de datos');
+});
+
+export default connection;

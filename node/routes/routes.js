@@ -1,8 +1,11 @@
 import express from "express";
-import { getAllUusuarios } from "../controllers/PPController.js";
 
-const router = express.Router()
+import * as ctrUser from "../controllers/PPController.js";
 
-router.get('/',getAllUusuarios)
+const router = express.Router();
 
-export default router
+
+router.post("/registro", ctrUser.crearCuenta)
+router.post("/login", ctrUser.crearCuenta)
+
+export default router;
