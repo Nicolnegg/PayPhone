@@ -4,6 +4,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './components/login.component'
 import SignUp from './components/signup.component'
+
 function App() {
   return (
     <Router>
@@ -11,7 +12,7 @@ function App() {
         <nav className="navbar navbar-expand-lg navbar-light fixed-top">
           <div className="container">
             <Link className="navbar-brand" to={'/sign-in'}>
-                PayPhone
+              PayPhone
             </Link>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav ml-auto">
@@ -31,6 +32,7 @@ function App() {
         </nav>
         <div className="auth-wrapper">
           <div className="auth-inner">
+            
             <Routes>
               <Route exact path="/" element={<Login />} />
               <Route path="/sign-in" element={<Login />} />
