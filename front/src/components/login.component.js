@@ -1,48 +1,85 @@
-import React, { Component } from 'react'
+import React, { useState,useEffect } from 'react'
+import { useNavigate} from 'react-router-dom'
 
+const URI = 'http://localhost:8000/login'
 
-export default class Login extends Component {
-  render() {
-    return (
-      <form>
-        <h3>Iniciar sesión</h3>
-        <div className="mb-3">
-          <label>Cuenta de usuario</label>
-          <input
-            type="usuario"
-            className="form-control"
-            placeholder="Ingresa usuario"
-          />
-        </div>
-        <div className="mb-3">
-          <label>Contraseña</label>
-          <input
-            type="contraseña"
-            className="form-control"
-            placeholder="Ingresa la contraseña"
-          />
-        </div>
-        <div className="mb-3">
-          <div className="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customCheck1"
-            />
-            <label className="custom-control-label" htmlFor="customCheck1">
-              Recuerdame
-            </label>
-          </div>
-        </div>
-        <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </div>
-        <p className="forgot-password text-right">
-          Olvidaste la <a href="#">contraseña?</a>
-        </p>
-      </form>
-    )
+const Login = () => {
+  const [correo, setCorreo] = useState ('');
+  const [contraseña, setContraseña] = useState('');
+  const navigate = useNavigate();
+  useEffect ( () => {
+    const auth = localStorage.getItem('user');
+    if(auth) {
+      navigate('./')
+    }
+
+  },[])
+  //procedimientos
+  const handleLog = async () => {
+    let result = await fetch (URI , {
+      method : 'post',
+      body: JSON.stringify({correo,contraseña}),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    });
+    result =await  result.json()
+    console.warn(result)
+    if(result.name){
+      localStorage.setItem('user', JSON.stringify(result));
+      navigate("./")
+    }else{
+      alert("Datos leidos correctamente")
+    }
+
   }
+
+  return (
+    <form>
+      <h3>Iniciar sesión</h3>
+      <div className="mb-3">
+        <label>Correo</label>
+        <input
+          type="usuario"
+          className="form-control"
+          placeholder="Ingresa usuario"
+          onChange={(e) => setCorreo(e.target.value)} value = {correo}
+
+        />
+      </div>
+      <div className="mb-3">
+        <label>Contraseña</label>
+        <input
+          type="contraseña"
+          className="form-control"
+          placeholder="Ingresa la contraseña"
+          onChange={(e) => setContraseña(e.target.value)} value={contraseña}
+        />
+      </div>
+      <div className="mb-3">
+        <div className="custom-control custom-checkbox">
+          <input
+            type="checkbox"
+            className="custom-control-input"
+            id="customCheck1"
+          />
+          <label className="custom-control-label" htmlFor="customCheck1">
+            Recuerdame
+          </label>
+        </div>
+      </div>
+      <div className="d-grid">
+        <button onClick={handleLog} type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </div>
+      <p className="forgot-password text-right">
+        Olvidaste la <a href="#">contraseña?</a>
+      </p>
+    </form>
+  )
+
 }
+
+
+export default Login
