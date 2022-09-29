@@ -23,6 +23,7 @@ const Login = () => {
         'Content-Type' : 'application/json'
       }
     });
+    
     result =await  result.json()
     console.warn(result)
     if(result.name){
