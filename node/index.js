@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from 'cors'
 import db from "./database/db.js"
 import router from "./routes/routes.js";
-import bcryptjs from "bcryptjs";
+import bcrypt from "bcryptjs";
 import session from "express-session";
 
 import appRoutes from './routes/routes.js';

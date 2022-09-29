@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import connection from "../database/db.js";
 const saltRounds = 10;
 
@@ -15,20 +15,28 @@ export async function crearCuenta(req,res){
         const fecha_nacimiento = req.body.fecha_nacimiento;
 
         if(contraseña == confirmacionClave){
-            //encripta clave
-            const hashed = await bcrypt.hash(contraseña, saltRounds);
-            console.log(hashed);
-            connection.query('INSERT INTO usuarios SET ?', { cedula: cedula, nombre: nombre, apellido: apellido, correo: correo, contraseña: hashed, fecha_nacimiento: fecha_nacimiento },
-                async (error, results) => {
-                    if (error) {
-                        console.log(error);
-                        res.json({ isOK: false, msj: "Usuario almacenado de forma incorrecta" })
-                    } else {
-                        res.json({ isOK: true, msj: "Usuario almacenado de forma correcta" })
-                    }
-                })
-            
+            connection.query('SELECT * FROM usuarios WHERE correo = ? ', [correo], async (error, results) => {
+                console.log(Object.keys(results).length);
+                //revisar que el correro no este usado ya
+                if (Object.keys(results).length == 0 ) {
+                    //encripta clave
+                    let hashed = await bcrypt.hash(contraseña, saltRounds);
+                    console.log(hashed);
+                    connection.query('INSERT INTO usuarios SET ?', { cedula: cedula, nombre: nombre, apellido: apellido, correo: correo, contraseña: hashed, fecha_nacimiento: fecha_nacimiento },
+                        async (error, results) => {
+                            if (error) {
+                                console.log(error);
+                                res.json({ isOK: false, msj: "Usuario almacenado de forma INCORRECTA" })
+                            } else {
+                                res.json({ isOK: true, msj: "Usuario almacenado de forma correcta" })
+                            }
+                        })
 
+                } else {
+                    res.json({ isOK: true, msj: "Correo ya utilizado" })
+                }
+            })
+            
 
         } else{
             //mensaje de error
@@ -43,10 +51,23 @@ export async function crearCuenta(req,res){
 
 }
 
-export const registro = async (req, res) => {
+export async function verificarUsuario(req, res) {
     try {
+        const correo = req.body.correo;
+        const contraseña = req.body.contraseña;
+        let hashed = await bcrypt.hash(contraseña, saltRounds);
         
-
+        if(correo && contraseña){
+            connection.query('SELECT * FROM usuarios WHERE correo = ? ', [correo], async (error, results) => {
+                console.log(Object.keys(results).length);
+                if (Object.keys(results).length == 0 || !(await bcrypt.compare(contraseña,results[0].contraseña))){
+                    
+                    res.json({ isOK: false, msj: "usuario o contraseña incorecta" })
+                }else{
+                    res.json({ isOK: true, msj: "login correcto" })
+                }
+            })
+        }
     } catch (error) {
         res.json({ message: error.message })
     }
