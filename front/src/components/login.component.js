@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-
-
 export default class Login extends Component {
   render() {
     return (
@@ -9,7 +7,7 @@ export default class Login extends Component {
         <div className="mb-3">
           <label>Cuenta de usuario</label>
           <input
-            type="usuario"
+            type="user"
             className="form-control"
             placeholder="Ingresa usuario"
           />
@@ -17,7 +15,7 @@ export default class Login extends Component {
         <div className="mb-3">
           <label>Contraseña</label>
           <input
-            type="contraseña"
+            type="password"
             className="form-control"
             placeholder="Ingresa la contraseña"
           />
