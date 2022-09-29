@@ -5,7 +5,7 @@ const URI = 'http://localhost:8000/login'
 
 const Login = () => {
   const [correo, setCorreo] = useState ('');
-  const [contraseña, setContraseña] = useState('');
+  const [contrasenia, setContrasenia] = useState('');
   const navigate = useNavigate();
   useEffect ( () => {
     const auth = localStorage.getItem('user');
@@ -18,7 +18,7 @@ const Login = () => {
   const handleLog = async () => {
     let result = await fetch (URI , {
       method : 'post',
-      body: JSON.stringify({correo,contraseña}),
+      body: JSON.stringify({correo,contrasenia}),
       headers: {
         'Content-Type' : 'application/json'
       }
@@ -28,7 +28,7 @@ const Login = () => {
     console.warn(result)
     if(result.name){
       localStorage.setItem('user', JSON.stringify(result));
-      navigate("./")
+      navigate("./") 
     }else{
       alert("Datos leidos correctamente")
     }
@@ -54,7 +54,7 @@ const Login = () => {
           type="contraseña"
           className="form-control"
           placeholder="Ingresa la contraseña"
-          onChange={(e) => setContraseña(e.target.value)} value={contraseña}
+          onChange={(e) => setContrasenia(e.target.value)} value={contrasenia}
         />
       </div>
       <div className="mb-3">
