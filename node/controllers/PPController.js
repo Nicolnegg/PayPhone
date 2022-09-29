@@ -10,19 +10,19 @@ export async function crearCuenta(req,res){
         const nombre = req.body.nombre;
         const apellido = req.body.apellido;
         const correo = req.body.correo;
-        const contraseña = req.body.contraseña;
+        const contrasenia = req.body.contrasenia;
         const confirmacionClave = req.body.confirmacionClave;
         const fecha_nacimiento = req.body.fecha_nacimiento;
 
-        if(contraseña == confirmacionClave){
-            connection.query('SELECT * FROM usuarios WHERE correo = ? ', [correo], async (error, results) => {
+        if(contrasenia == confirmacionClave){
+            connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
                 console.log(Object.keys(results).length);
                 //revisar que el correro no este usado ya
                 if (Object.keys(results).length == 0 ) {
                     //encripta clave
-                    let hashed = await bcrypt.hash(contraseña, saltRounds);
+                    let hashed = await bcrypt.hash(contrasenia, saltRounds);
                     console.log(hashed);
-                    connection.query('INSERT INTO usuarios SET ?', { cedula: cedula, nombre: nombre, apellido: apellido, correo: correo, contraseña: hashed, fecha_nacimiento: fecha_nacimiento },
+                    connection.query('INSERT INTO usuario SET ?', { cedula: cedula, nombre: nombre, apellido: apellido, correo: correo, contrasenia: hashed, fecha_nacimiento: fecha_nacimiento },
                         async (error, results) => {
                             if (error) {
                                 console.log(error);
@@ -54,13 +54,13 @@ export async function crearCuenta(req,res){
 export async function verificarUsuario(req, res) {
     try {
         const correo = req.body.correo;
-        const contraseña = req.body.contraseña;
-        let hashed = await bcrypt.hash(contraseña, saltRounds);
+        const contrasenia = req.body.contrasenia;
+        let hashed = await bcrypt.hash(contrasenia, saltRounds);
         
-        if(correo && contraseña){
-            connection.query('SELECT * FROM usuarios WHERE correo = ? ', [correo], async (error, results) => {
+        if(correo && contrasenia){
+            connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
                 console.log(Object.keys(results).length);
-                if (Object.keys(results).length == 0 || !(await bcrypt.compare(contraseña,results[0].contraseña))){
+                if (Object.keys(results).length == 0 || !(await bcrypt.compare(contrasenia,results[0].contrasenia))){
                     
                     res.json({ isOK: false, msj: "usuario o contraseña incorecta" })
                 }else{
