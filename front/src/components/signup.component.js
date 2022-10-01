@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 
-const URI = 'http://localhost:8000/login'
+const URI = 'http://localhost:8000/registro'
 
 const SignUp = () => {
   const [cedula, setCedula] = useState('');
@@ -20,6 +20,7 @@ const SignUp = () => {
   const store = async (e) => {
     e.preventDefault()
     await axios.post(URI, { cedula: cedula, nombre: nombre, apellido: apellido, correo: correo, contrasenia: contrasenia, confirmacionClave: confirmacionClave, fecha_nacimiento: fecha_nacimiento })
+    alert("Datos leidos correctamente y Almacenado Correctamente")
     navigate('/')
   }
 

@@ -29,6 +29,7 @@ const Login = () => {
     if(result.name){
       localStorage.setItem('user', JSON.stringify(result));
       navigate("./") 
+      alert("Datos leidos correctamente")
     }else{
       alert("Datos leidos correctamente")
     }
