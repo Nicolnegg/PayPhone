@@ -33,7 +33,7 @@ export async function crearCuenta(req,res){
                         })
 
                 } else {
-                    res.json({ isOK: true, msj: "Correo ya utilizado" })
+                    res.json({ isOK: false, msj: "Correo ya utilizado" })
                 }
             })
             
