@@ -8,6 +8,6 @@ const router = express.Router();
 
 router.post("/registro", ctrUser.crearCuenta)
 router.post("/login", ctrUser.verificarUsuario)
-router.post("/menu", menuUser.consultarEstablecimiento)
+router.get("/menu", menuUser.consultarEstablecimiento)
 
 export default router;
