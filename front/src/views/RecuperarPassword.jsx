@@ -66,7 +66,7 @@ const RecuperarPassword = () => {
       <div className="forgot text-center d-flex" style={style}>
         <div className="form-signin rounded max-w-forgp my-auto">
             <form onSubmit={enviarCorreo} onChange={changeForm}>
-                <img className="w-25 mb-4 d-flex justify-content-start" src={Logo} alt="Free-Lánzate"/>
+                <img className="w-25 mb-4 d-flex justify-content-start" src={Logo} alt="PayPhone"/>
                 <h5 className="welcome mb-3 fw-bold">{title}</h5>
                 <p>{subtitle}</p>
                 <div className="form-floating w-75 mx-auto mt-5">

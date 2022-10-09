@@ -242,7 +242,7 @@ const Perfil = () => {
                 <Modal.Body className="b-white text-center">
                     <h5>Para realizar el cambio de contraseña de manera segura
                         se cerrará la sesión de tu cuenta.</h5>
-                    <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                    <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
                     <h5>¿Deseas continuar?</h5>
                 </Modal.Body>
                 <Modal.Footer className="b-white">
@@ -269,7 +269,7 @@ const Perfil = () => {
                 </Modal.Header>
                 <Modal.Body className="b-white text-center">
                     <h5>Esta acción eliminará los datos de tu cuenta de manera permanente y no se podrá deshacer.</h5>
-                    <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                    <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
                     <h5>¿Deseas continuar?</h5>
                 </Modal.Body>
                 <Modal.Footer className="b-white">

@@ -173,7 +173,7 @@ function Sidebar (props)  {
         <Sider className='sidebar' style={style}>
             <div className="top mt-3">
                 <Link to={rol}>
-                    <img className="logo d-flex justify-content-center" src={Logo} alt="Free-Lánzate"/>
+                    <img className="logo d-flex justify-content-center" src={Logo} alt="PayPhone"/>
                 </Link>
             </div>
             <div className="center mt-5">

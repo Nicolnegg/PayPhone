@@ -134,7 +134,7 @@ const Registro = () => {
     <div className="reg text-center d-flex" style={style}>
         <div className="form-signin rounded max-w-reg my-auto" onSubmit={register} onChange={changeForm}>
             <form>
-                <img className="mb-4 d-flex justify-content-start" src={Logo} alt="Free-Lánzate"/>
+                <img className="mb-4 d-flex justify-content-start" src={Logo} alt="PayPhone"/>
                 <div className="row g-2">
                     <h5 className="welcome mb-3 fw-bold">Crea tu cuenta</h5>
                     <p>Por favor, diligencia los siguientes campos</p>

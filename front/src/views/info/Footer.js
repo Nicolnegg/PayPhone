@@ -18,7 +18,7 @@ export const Footer = () => {
 
     return(
         <div className="footer welcome2 ">
-            <img className="logo d-flex mx-auto w-25 mb-2 welcome3" src={Logo} alt="Free-Lánzate"/>
+            <img className="logo d-flex mx-auto w-25 mb-2 welcome3" src={Logo} alt="PayPhone"/>
             <h5 className="footer_element text-decoration-underline">Contáctanos y síguenos en nuestras redes: </h5>
             <div className="d-flex my-4">
                 <div className="col">

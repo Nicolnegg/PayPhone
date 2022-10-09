@@ -70,7 +70,7 @@ function Login (){
     <div className="login text-center d-flex" style={style}>
       <div className="form-signin rounded max-w-log my-auto" onChange={changeForm} onSubmit={login}>
             <form>
-                <img className="w-50 mb-4 mt-2" src={Logo} alt="Free-Lánzate" />
+                <img className="w-50 mb-4 mt-2" src={Logo} alt="PayPhone" />
                 <h5 className=" welcome mb-3 fw-bold">¡Te damos la bienvenida!</h5>
                 <div className="form-floating w-75 mx-auto mt-4">
                     <input

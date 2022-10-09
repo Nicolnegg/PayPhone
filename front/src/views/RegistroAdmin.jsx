@@ -91,7 +91,7 @@ const RegistroAdmin = () => {
             <div className="reg text-center d-flex" style={style} onSubmit={registrar} onChange={changeForm}>
                 <div className="form-signin rounded max-w-regfree my-auto">
                     <form>
-                        <img className="mb-4 d-flex justify-content-start" src={Logo} alt="Free-Lánzate"/>
+                        <img className="mb-4 d-flex justify-content-start" src={Logo} alt="PayPhone"/>
                         <h5 className="welcome mb-3 fw-bold">¡Hola, admin!</h5>
                         <div className="row">
                             <div className="col-3 my-auto">

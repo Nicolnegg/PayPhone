@@ -28,7 +28,7 @@ const ModalError = ({error}) => {
             </Modal.Header>
             <Modal.Body className="b-white text-center">
                 <h5>{error}</h5>
-                <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
             </Modal.Body>
             <Modal.Footer className="b-white">
                 <button className="btn btn-primary fw-bold float-end" onClick={handleClose}>

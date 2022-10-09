@@ -257,7 +257,7 @@ import Table from "react-bootstrap/Table";
               <Modal.Body className="b-white text-center">
                   <h5>Para contactar con los admins es necesario
                       que inicies sesión en tu cuenta.</h5>
-                  <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                  <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
                   <h5>¿Deseas continuar?</h5>
               </Modal.Body>
               <Modal.Footer className="b-white">

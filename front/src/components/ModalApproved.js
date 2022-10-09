@@ -59,7 +59,7 @@ const ModalApproved = (props) =>{
                 </Modal.Header>
                 <Modal.Body className="b-white text-center">
                     <h5>¡Tu compra fue realizada con éxito!</h5>
-                    <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                    <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
                 </Modal.Body>
                 <Modal.Footer className="b-white">
                     <button className="btn3 rounded fw-bold" onClick={handleClose}>
@@ -84,7 +84,7 @@ const ModalApproved = (props) =>{
                 </Modal.Header>
                 <Modal.Body className="b-white text-center">
                     <h5>Debes seleccionar un plan para hacer uso de esta funcionalidad</h5>
-                    <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                    <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
                 </Modal.Body>
                 <Modal.Footer className="b-white">
                     <button className="btn btn-primary fw-bold float-end" onClick={handleClose2}>
@@ -106,7 +106,7 @@ const ModalApproved = (props) =>{
                 </Modal.Header>
                 <Modal.Body className="b-white text-center">
                     <h5>Debes publicar el anuncio por el que pagaste antes de elegir un nuevo plan.</h5>
-                    <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                    <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
                 </Modal.Body>
                 <Modal.Footer className="b-white">
                     <button className="btn btn-primary fw-bold float-end" onClick={handleClose2b}>
@@ -128,7 +128,7 @@ const ModalApproved = (props) =>{
                 </Modal.Header>
                 <Modal.Body className="b-white text-center">
                     <h5>Tu anuncio ha sido publicado. ¡Gracias por hacer uso de nuestra aplicación!</h5>
-                    <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                    <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
                 </Modal.Body>
                 <Modal.Footer className="b-white">
                     <button className="btn btn-primary fw-bold float-end" onClick={handleClose3}>
@@ -150,7 +150,7 @@ const ModalApproved = (props) =>{
                 </Modal.Header>
                 <Modal.Body className="b-white text-center">
                     <h5>¡Tu pago fue realizado con éxito!</h5>
-                    <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                    <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
                 </Modal.Body>
                 <Modal.Footer className="b-white">
                     <button className="btn btn-primary fw-bold float-end" onClick={handleClose4}>
@@ -175,7 +175,7 @@ const ModalApproved = (props) =>{
                         ¡Transacción completada con éxito!
                         Tu donación nos ayuda a mejorar este proyecto y a que nuestra plataforma siga creciendo cada día.
                     </h5>
-                    <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                    <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
                 </Modal.Body>
                 <Modal.Footer className="b-white">
                     <button className="btn btn-primary fw-bold float-end" onClick={handleClose2}>

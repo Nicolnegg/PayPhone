@@ -179,7 +179,7 @@ import {starRating} from "../api/reviews";
               <Modal.Body className="b-white text-center">
                   <h5>Para ver los detalles de este anuncio es necesario
                       que inicies sesión en tu cuenta.</h5>
-                  <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                  <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
                   <h5>¿Deseas continuar?</h5>
               </Modal.Body>
               <Modal.Footer className="b-white">
@@ -202,7 +202,7 @@ import {starRating} from "../api/reviews";
               <Modal.Body className="b-white text-center">
                   <h5>Parece que estás tratando de adquirir uno de tus propios productos o servicios.
                   Esta acción no está permitida.</h5>
-                  <img className="logo mb-4 mt-3" src={Logo} alt="Free-Lánzate"/>
+                  <img className="logo mb-4 mt-3" src={Logo} alt="PayPhone"/>
               </Modal.Body>
               <Modal.Footer className="b-white">
                   <button className="btn btn-primary fw-bold float-end" onClick={handleClose}>
