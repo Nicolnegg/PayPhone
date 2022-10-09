@@ -1,6 +1,6 @@
 //importamos coneccion base de datos
 import db from '../database/db.js';
-//importamos seqeuliza
+//importamos sequeliza
 import { DataTypes } from 'sequelize';
 
 const UsuariosModel= db.define('usuarios',{
