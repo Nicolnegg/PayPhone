@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from 'cors'
+import db from "./database/db.js"
 import router from "./routes/routes.js";
 import session from "express-session";
 import passport from "passport";

@@ -1,12 +1,9 @@
 //importamos coneccion base de datos
 import db from '../database/db.js';
-<<<<<<< HEAD
 //importamos seqeuliza
 import { Sequelize, DataTypes } from 'sequelize';
-=======
 //importamos sequeliza
 import { DataTypes } from 'sequelize';
->>>>>>> ee2356e5de5a88c9c47a9cfdbc534eec5650f931
 
 
 
