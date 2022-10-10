@@ -72,3 +72,11 @@ export async function verificarUsuario(req, res) {
         res.json({ message: error.message })
     }
 }
+
+export async function recuperarContraseña(req, res){
+    try {
+        
+    } catch (error) {
+        
+    }
+}
