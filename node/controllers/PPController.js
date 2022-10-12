@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import connection from "../database/db.js";
 const saltRounds = 10;
+const usuarioId =1;
 
 export async function crearCuenta(req,res){
     
@@ -60,6 +61,7 @@ export async function verificarUsuario(req, res) {
         if(correo && contrasenia){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
                 console.log(Object.keys(results).length);
+                
                 if (Object.keys(results).length == 0 || !(await bcrypt.compare(contrasenia,results[0].contrasenia))){
                     
                     res.json({ isOK: false, msj: "usuario o contraseña incorecta" })
@@ -70,5 +72,25 @@ export async function verificarUsuario(req, res) {
         }
     } catch (error) {
         res.json({ message: error.message })
+    }
+}
+
+export async function pago_despues_carrito(req, res) {
+    const user = usuarioId
+    res.json(user)
+    //id usuario y id metodo de pago (id es mismo ,metodo diferente) ase debe seleccionar metodo (entrada)
+    //cnsulta con id de usuario los productos en carrito
+    //revidsamos el precio
+    //sumamos
+    //consultamos id usuario metodos de pago
+    //seleccionamos y seguimos
+
+}
+
+export async function recuperarContraseña(req, res){
+    try {
+        
+    } catch (error) {
+        
     }
 }
