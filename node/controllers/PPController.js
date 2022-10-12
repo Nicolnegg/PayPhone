@@ -67,6 +67,7 @@ export async function verificarUsuario(req, res) {
                     res.json({ isOK: false, msj: "usuario o contraseña incorecta" })
                 }else{
                     res.json({ isOK: true, msj: "login correcto" })
+                    req.session.user = results[0]
                 }
             })
         }
