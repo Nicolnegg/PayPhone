@@ -1,47 +1,48 @@
-import React from 'react'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Login from './components/login.component'
-import SignUp from './components/signup.component'
+import React from "react";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import routes from "./routes";
+import internalRoutes from "./internalRoutes";
+import visitorRoutes from "./visitorRoutes";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/sass/global.scss";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "font-awesome/css/font-awesome.min.css";
+import AuthProvider from "./providers/AuthProvider";
+
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-          <div className="container">
-            <Link className="navbar-brand" to={'/sign-in'}>
-              PayPhone
-            </Link>
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to={'/sign-in'}>
-                    Iniciar sesión
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to={'/sign-up'}>
-                    Registrarse
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <div className="auth-wrapper">
-          <div className="auth-inner">
-            
-            <Routes>
-              <Route exact path="/" element={<Login />} />
-              <Route path="/sign-in" element={<Login />} />
-              <Route path="/sign-up" element={<SignUp />} />
-            </Routes>
-          </div>
-        </div>
-      </div>
-    </Router>
-  )
+      <AuthProvider>
+          <BrowserRouter>
+          <Routes>
+                {routes.map((route, index) => (
+                    <Route
+                      key={index}
+                      path={route.path}>
+                      {internalRoutes.map((internalRoute,index2) => (
+                          <Route
+                              key={index2}
+                              path={internalRoute.path}
+                              element = {<route.layout rol={route.path}>
+                                  <internalRoute.component/>
+                              </route.layout>}
+                          />
+                      ))}
+                    </Route>
+                ))}
+            {visitorRoutes.map((visitorRoute,index3) => (
+                <Route
+                  key={index3}
+                  path={visitorRoute.path}
+                  element = {<visitorRoute.layout side={visitorRoute.path === "/" || visitorRoute.path === "/informacionExtra"}>
+                      <visitorRoute.component/>
+                  </visitorRoute.layout>}
+                />
+            ))}
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+  );
 }
+
 export default App
