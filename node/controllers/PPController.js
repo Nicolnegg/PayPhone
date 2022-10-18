@@ -1,5 +1,6 @@
 import bcrypt from "bcryptjs";
 import connection from "../database/db.js";
+import passport from "passport";
 const saltRounds = 10;
 const usuarioId =1;
 
@@ -49,6 +50,7 @@ export async function crearCuenta(req,res){
         res.json({ message: error.message })
 
     }
+    
 
 }
 
@@ -67,14 +69,23 @@ export async function verificarUsuario(req, res) {
                     res.json({ isOK: false, msj: "usuario o contraseña incorecta" })
                 }else{
                     res.json({ isOK: true, msj: "login correcto" })
-                    req.session.user = results[0]
+                    req.session ['passport']={user:''}
+                    req.session.passport.user = results[0]
                 }
             })
         }
+        //console.log(req.sessioncookie)
+        //console.log('cookie')
     } catch (error) {
         res.json({ message: error.message })
     }
+    
 }
+
+passport.serializeUser(function (user, done) {
+    console.log('OK')//is show in console
+    done(null, user);
+});
 
 export async function pago_despues_carrito(req, res) {
     const user = usuarioId

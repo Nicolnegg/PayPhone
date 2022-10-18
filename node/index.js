@@ -81,11 +81,12 @@ passport.use(
 ));
 
 passport.serializeUser((user, done) =>{
-    done(null, user.usuario_id )
+    done(null, user )
+    console.log(user)
 })
-
-passport.deserializeUser((id, done) => {
-    db.query('SELECT * FROM usuario WHERE usuario_id = ? ', [id], async (error, results) => {
+passport.deserializeUser((usuario, done) => {
+    db.query('SELECT * FROM usuario WHERE usuario_id = ? ', [usuario.usuario_id], async (error, results) => {
         done(null, results[0])
     })
+    console.log('deserializada')
 })
