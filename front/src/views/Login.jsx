@@ -58,7 +58,7 @@ function Login (){
       const free = jwtDecode(result)
       localStorage.setItem(TOKEN, result);
         if(free.sub.isAdmin){
-          window.location.href = "freelanzer";
+          window.location.href = "admin";
         }else{
           window.location.href = "usuario";
         }
