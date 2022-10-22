@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import connection from "../database/db.js";
 import passport from "passport";
+import jwt from 'jsonwebtoken';
 const saltRounds = 10;
 const usuarioId =1;
 
@@ -68,10 +69,24 @@ export async function verificarUsuario(req, res) {
                     
                     res.json({ isOK: false, msj: "usuario o contraseña incorecta" })
                 }else{
-                    res.json({ isOK: true, msj: "login correcto" })
-                    req.session ['passport']={user:''}
-                    req.session ['productos'] = { 'total': 0 } 
+                    //campos de login
+                    req.session['passport'] = { user: '' }
+                    req.session['productos'] = { 'total': 0 }
                     req.session.passport.user = results[0]
+                    // create token
+                    const token = jwt.sign(
+                        {
+                        name: req.session.passport.user.nombre,
+                        id: req.session.passport.user.usuario_id
+                        }, 
+                    'secret_key')
+
+                    res.header('auth-token', token).json({
+                        error: null,
+                        data: { token }
+                    })
+                    
+                    
                 }
             })
         }
