@@ -1,5 +1,5 @@
 export function anuncia(data,id){
-    data.freelancerId = id
+    data.adminId = id
     const url = 'http://localhost:8000/post/create';
     const params = {
         method: "POST",
