@@ -23,8 +23,8 @@ function Login (){
     }
 
   const [inputs, setInputs] = useState({
-    email: "",
-    password: ""
+    correo: "",
+    contrasenia: ""
   });
 
   const changeForm = e => {
@@ -77,20 +77,20 @@ function Login (){
                             type="email"
                             className="form-control mb-3"
                             id="email"
-                            name="email"
+                            name="correo"
                             placeholder="username"
                     />
-                    <label htmlFor="email">Correo electrónico</label>
+                    <label htmlFor="correo">Correo electrónico</label>
                 </div>
                 <div className="form-floating w-75 mx-auto">
                     <input
                             type="password"
                             className="form-control mb-3"
                             id="password"
-                            name="password"
+                            name="contrasenia"
                             placeholder="Password"
                     />
-                    <label htmlFor="password">Contraseña</label>
+                    <label htmlFor="contrasenia">Contraseña</label>
                     <i className="bi bi-eye-slash-fill form-icon" onClick={((e) => showHide(e.target))}> </i>
                 </div>
                 <div className="h3 mb-3 fw-normal">
