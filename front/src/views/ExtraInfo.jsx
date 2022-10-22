@@ -13,6 +13,7 @@ const ExtraInfo = () => {
           return (<Legal/>)
       }
   }
+  
 
   return (
       <div className='contenedorPerfil container d-flex' >
