@@ -82,6 +82,7 @@ passport.use(
 
 passport.serializeUser((user, done) =>{
     done(null, user )
+    req.session['productos'] = { 'total': 0 } 
     console.log(user)
 })
 passport.deserializeUser((usuario, done) => {

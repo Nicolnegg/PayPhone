@@ -70,6 +70,7 @@ export async function verificarUsuario(req, res) {
                 }else{
                     res.json({ isOK: true, msj: "login correcto" })
                     req.session ['passport']={user:''}
+                    req.session ['productos'] = { 'total': 0 } 
                     req.session.passport.user = results[0]
                 }
             })
