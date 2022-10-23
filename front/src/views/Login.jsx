@@ -25,8 +25,8 @@ function Login (){
     }
 
   const [inputs, setInputs] = useState({
-    email: "",
-    password: ""
+    correo: "",
+    contrasenia: ""
   });
 
   const changeForm = e => {
@@ -80,7 +80,7 @@ function Login (){
                             type="email"
                             className="form-control mb-3"
                             id="email"
-                            name="email"
+                            name="correo"
                             placeholder="username"
                     />
                     <label htmlFor="email">Correo electrónico</label>
@@ -90,7 +90,7 @@ function Login (){
                             type="password"
                             className="form-control mb-3"
                             id="password"
-                            name="password"
+                            name="contrasenia"
                             placeholder="Password"
                     />
                     <label htmlFor="password">Contraseña</label>
