@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {iniciar_sesion} from "../api/user"
 import {TOKEN} from "../utils/tokens"
 import Logo from "../assets/images/Logo.png"
@@ -9,6 +9,8 @@ import jwtDecode from 'jwt-decode'
 import ModalError from "../components/ModalError";
 
 function Login (){
+
+    const navigate = useNavigate()
 
     const error = localStorage.getItem("ERR")
 
@@ -23,8 +25,8 @@ function Login (){
     }
 
   const [inputs, setInputs] = useState({
-    correo: "",
-    contrasenia: ""
+    email: "",
+    password: ""
   });
 
   const changeForm = e => {
@@ -46,22 +48,23 @@ function Login (){
         localStorage.setItem('ERR',result)
         refreshPage()
     }
-    else if(result ==='La contraseña es incorrecta.'){
+    else if(result === 'La contraseña es incorrecta.'){
         localStorage.setItem('ERR',result)
         refreshPage()
     }
-    else if(result ==='Por favor ingrese todos los campos.'){
+    else if(result === 'Por favor ingrese todos los campos.'){
         localStorage.setItem('ERR',result)
         refreshPage()
     }
     else{
       const free = jwtDecode(result)
       localStorage.setItem(TOKEN, result);
-        if(free.sub.isAdmin){
-          window.location.href = "admin";
-        }else{
-          window.location.href = "usuario";
-        }
+        // if(free.sub.isAdmin){
+        //   window.location.href = "admin";
+        // }else{
+        //   window.location.href = "usuario";
+        // }
+        navigate('/profile')
     }
   }
 
@@ -77,20 +80,20 @@ function Login (){
                             type="email"
                             className="form-control mb-3"
                             id="email"
-                            name="correo"
+                            name="email"
                             placeholder="username"
                     />
-                    <label htmlFor="correo">Correo electrónico</label>
+                    <label htmlFor="email">Correo electrónico</label>
                 </div>
                 <div className="form-floating w-75 mx-auto">
                     <input
                             type="password"
                             className="form-control mb-3"
                             id="password"
-                            name="contrasenia"
+                            name="password"
                             placeholder="Password"
                     />
-                    <label htmlFor="contrasenia">Contraseña</label>
+                    <label htmlFor="password">Contraseña</label>
                     <i className="bi bi-eye-slash-fill form-icon" onClick={((e) => showHide(e.target))}> </i>
                 </div>
                 <div className="h3 mb-3 fw-normal">
