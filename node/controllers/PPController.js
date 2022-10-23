@@ -77,13 +77,14 @@ export async function verificarUsuario(req, res) {
                     const token = jwt.sign(
                         {
                         name: req.session.passport.user.nombre,
-                        id: req.session.passport.user.usuario_id
+                        id: req.session.passport.user.usuario_id,
+                        isAdmin: false
                         }, 
                     'secret_key')
 
                     res.header('auth-token', token).json({
                         error: null,
-                        data: { token }
+                        data: { token, isAdmin: false, id: req.session.passport.user.usuario_id }
                     })
                     
                     
