@@ -6,9 +6,9 @@ export async function consultarEstablecimiento(req, res) {
             console.log(Object.keys(results).length);
             if (Object.keys(results).length == 0){
                 
-                res.json({ isOK: false, msj: "consulta incorrecta" })
+                res.json({ error })
             }else{
-                res.json({ isOK: true, msj: "Menú correcto" })
+                res.json({ results })
             }
         })
     } catch(error) {
@@ -21,13 +21,12 @@ export async function consultarPAEstablecimiento(req, res) {
     try{
         const establecimiento_nit = req.body.establecimiento_nit;
 
-        connection.query('SELECT punto_atencion_id, nombre_sede, horario, direccion, ciudad FROM punto_atencion WHERE activo = 1 AND extablecimiento_nit = ?', [establecimiento_nit], async (error, results) => {
-            //console.log(Object.keys(results).length);
+        connection.query('SELECT punto_atencion_id, nombre_sede, horario, direccion, ciudad FROM punto_atencion WHERE activo = 1 AND establecimiento_nit = ?', [establecimiento_nit], async (error, results) => {
             if (results == null){
                 
-                res.json({ isOK: false, msj: "consulta incorrecta" })
+                res.json({ error })
             }else{
-                res.json({ isOK: true, msj: "Submenú correcto" })
+                res.json({ results })
             }
         })
     } catch(error) {
