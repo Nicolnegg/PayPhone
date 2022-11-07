@@ -78,7 +78,7 @@ export async function crear_establecimiento(req,res){
                                 console.log(error);
                                 res.json({ isOK: false, msj: "Establecimiento almacenado de forma INCORRECTA" })
                             } else {
-                                connection.query('INSERT INTO administrador SET ?', { establecimiento_nit: nit, usuario_id: 3, activo: 0}, async (error, results) => {
+                                connection.query('INSERT INTO administrador SET ?', { establecimiento_nit: nit, usuario_id: req.session.passport.user.id, activo: 0}, async (error, results) => {
                                     if (error) {
                                         console.log(error);
                                         res.json({ isOK: false, msj: "Administrador  almacenado de forma INCORRECTA" })

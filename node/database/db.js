@@ -1,4 +1,5 @@
 import mysql from "mysql";
+import { Sequelize } from "sequelize";
 
 const connection = mysql.createConnection({
     host: "localhost",

@@ -7,6 +7,7 @@ import * as carritoUser from "../controllers/CarritoUsuario.js";
 import * as productoUser from "../controllers/ProductoUsuario.js";
 import * as compraUser from "../controllers/ComprarProductos.js";
 import * as UserEmpresa from "../controllers/EmpresaLog.js";
+import * as establecimientoAdmin from "../controllers/EstablecimientoController.js";
 
 const router = express.Router();
 
@@ -32,5 +33,7 @@ router.get("/menu", menuUser.consultarEstablecimiento)
 router.get("/productos", productoUser.productosMenu)
 router.post("/registro-empresa", UserEmpresa.crearCuenta_empresa)
 router.post("/registro-establecimiento", UserEmpresa.crear_establecimiento)
+router.get("/lista-establecimientos", establecimientoAdmin.AceptarEstableciemiento)
+router.post("/activar-establecimientos", establecimientoAdmin.ActivarEstableciemiento)
 
 export default router;
