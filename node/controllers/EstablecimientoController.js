@@ -28,9 +28,15 @@ export async function AceptarEstableciemiento(req, res){
 
 export const ActivarEstableciemiento = (req,res) =>{ //necesita ser enviado el nit del establecimiento
     try {
-        connection.query('UPDATE administrador SET activo = 1 WHERE establecimiento_nit = ? ', [req.body.nit], async (error, results) => {
+        connection.query('SELECT * FROM administrador WHERE establecimiento_nit = ? ', [req.body.nit], async (error, resultados) =>  {
+            connection.query('UPDATE administrador SET activo = 1 WHERE establecimiento_nit = ? ', [resultados[0].establecimiento_nit], async (error, results) => {
+                connection.query('UPDATE usuario SET activo = 1 WHERE usuario_id = ? ', [resultados[0].usuario_id], async (error, results) => {
+                    res.json({"message": "Activado EXITOSAMENTE"})
+                })
+            })
         })
-        res.json({"message": "Activado EXITOSAMENTE"})
+        
+        
     } catch (error) {
         res.json({message: error.messaje})
     }
