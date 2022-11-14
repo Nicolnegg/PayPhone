@@ -27,10 +27,22 @@ export async function productosCarrito(req, res){
 }
 
 export async function agregarCarrito(req, res) {
+    console.log("agregando producto al carrito")
     try {
         const usuario_id = req.session.passport.user.usuario_id;
         const producto_id = req.body.producto_id;
         const cantidad = req.body.cantidad;
+        
+        connection.query('SELECT * FROM producto WHERE producto_id = ? ', [producto_id], async (error, resultados) => {
+            const foto = resultados[0].imagen;
+            const nombre = resultados[0].nombre;
+            const precio = resultados[0].precio_venta;
+            req.session.productos.total += precio * cantidad;
+            const esto = 'dos'
+            req.session.productos[esto] = { 'nombre': nombre, 'foto': foto, 'precio': precio, 'cantidad': cantidad };
+            console.log(req.session)
+            console.log(req.session)
+        })
         connection.query('INSERT INTO carrito SET ?', { usuario_id: usuario_id, producto_id: producto_id, cantidad: cantidad },
             async (error, results) => {
                 if (error) {
@@ -40,25 +52,19 @@ export async function agregarCarrito(req, res) {
                     res.json({ isOK: true, msj: "Producto almacenado de forma correcta" })
                 }
             })
-        connection.query('SELECT * FROM producto WHERE producto_id = ? ', [producto_id], async (error, resultados) => {
-            const foto = resultados[0].imagen;
-            const nombre = resultados[0].nombre;
-            const precio = resultados[0].precio_venta;
-            req.session.productos.total += precio * cantidad;
-            req.session.productos[nombre] = { 'nombre': nombre, 'foto': foto, 'precio': precio, 'cantidad': cantidad }
-        })
     } catch (error) {
         res.json({ message: error.message })
-
     }
 
-    
-
+    console.log(req.session)
 }
 
 export async function getCarrito(req, res) {
     try {
         const productosCarrito = req.session.productos
+        console.log("get carrito")
+        console.log(req.session)
+        console.log(productosCarrito)
         res.json(productosCarrito)
     } catch (error) {
         res.json({ message: error.message })

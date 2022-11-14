@@ -51,7 +51,6 @@ passport.use(
     },
     (accessToken, refreshToken, profile, done) => {
         //done(null, profile); // passes the profile data to serializeUser
-        console.log(profile)
 
         db.query('SELECT * FROM usuario WHERE cedula = ? ', [profile.id], async (error, results) => {
 
@@ -61,9 +60,7 @@ passport.use(
                 db.query('INSERT INTO usuario SET ?', { cedula: profile.id, nombre: profile.name.givenName, apellido: profile.name.familyName }, async (error, resultados) => {
                     if (error) throw error;
                     console.log('Registrado google')
-                    console.log(resultados);
                     console.log(db.query('SELECT * FROM usuario WHERE usuario_id = ? ', [resultados.insertId], async (error, results) => { 
-                        console.log(results[0].usuario_id) 
                         done(null, results[0])
                     }))
                 })
@@ -81,9 +78,10 @@ passport.use(
 ));
 
 passport.serializeUser((user, done) =>{
-    done(null, user )
     req.session['productos'] = { 'total': 0 } 
     console.log(user)
+    done(null, user )
+    
 })
 passport.deserializeUser((usuario, done) => {
     db.query('SELECT * FROM usuario WHERE usuario_id = ? ', [usuario.usuario_id], async (error, results) => {

@@ -63,8 +63,7 @@ export async function verificarUsuario(req, res) {
         
         if(correo && contrasenia){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
-                console.log('hola', results);
-                console.log('adios', error);
+
                 console.log(Object.keys(results).length);
                 
                 
@@ -74,8 +73,9 @@ export async function verificarUsuario(req, res) {
                 }else{
                     //campos de login
                     req.session['passport'] = { user: '' }
-                    req.session['productos'] = { 'total': 0 }
+                    req.session['productos'] = { total: 0 }
                     req.session.passport.user = results[0]
+                    
                     // create token
                     const token = jwt.sign(
                         {
