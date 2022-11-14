@@ -42,6 +42,32 @@ export const Footer = () => {
                     <h6 className="text-white mx-3">manueldmaya@gamil.com</h6>
                 </div>
             </div>
+            <h5 className="footer_element text-decoration-underline">
+                ¿Desear donar para contibuir a este proyecto?
+                Haz clic a continuación
+            </h5>
+            <div className="row mt-4">
+                <PayPalScriptProvider options={initialOptions}>
+                    <PayPalButtons
+                        createOrder={(data, actions) => {
+                            return actions.order.create({
+                                purchase_units: [
+                                    {
+                                        amount: {
+                                            value: "5",
+                                        },
+                                    },
+                                ],
+                            });
+                        }}
+                        onApprove={(data, actions) => {
+                            return actions.order.capture().then((details) => {
+                                finalizarCompra("done");
+                            });
+                        }}
+                    />
+                </PayPalScriptProvider>
+            </div>
             <ModalApproved location="info"/>
         </div>
     )
