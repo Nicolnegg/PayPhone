@@ -14,6 +14,7 @@ const router = express.Router();
 
 
 router.post("/registro", ctrUser.crearCuenta)
+router.get("/recuperar_contraseña", ctrUser.recuperarContraseña)
 router.post("/login", ctrUser.verificarUsuario,)
 router.get("/google", passport.authenticate('google',{
     scope: ['profile']
