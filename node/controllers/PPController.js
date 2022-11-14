@@ -63,8 +63,7 @@ export async function verificarUsuario(req, res) {
         
         if(correo && contrasenia){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
-                console.log('hola', results);
-                console.log('adios', error);
+
                 console.log(Object.keys(results).length);
                 
                 
@@ -74,8 +73,9 @@ export async function verificarUsuario(req, res) {
                 }else{
                     //campos de login
                     req.session['passport'] = { user: '' }
-                    req.session['productos'] = { 'total': 0 }
+                    req.session['productos'] = { total: 0 }
                     req.session.passport.user = results[0]
+                    
                     // create token
                     const token = jwt.sign(
                         {
@@ -98,7 +98,6 @@ export async function verificarUsuario(req, res) {
     } catch (error) {
         res.json({ message: error.message })
     }
-    
 }
 
 passport.serializeUser(function (user, done) {
@@ -120,7 +119,46 @@ export async function pago_despues_carrito(req, res) {
 
 export async function recuperarContraseña(req, res){
     try {
+        const correo = req.body.correo;
+
+        //Requerimos el paquete
+        var nodemailer = require('nodemailer');
+
+        //Creamos el objeto de transporte
+        var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'payphonecol@gmail.com',
+            pass: 'payphone1234'
+        }
+        });
+
+        connection.query('SELECT contrasenia FROM usuario WHERE correo = ?', [correo], async (error, results) => {
+            if (results == null){
+                
+                res.json({ error })
+            }else{
+                res.json({ results })
+            }
+        })
+
+        var mensaje = "Hola! usuario PayPhone, aqui esta tu contraseña" + results[0];
         
+        var mailOptions = {
+            from: 'payphonecol@gmail.com',
+            to: correo,
+            subject: 'Recuperación de contraseña',
+            text: mensaje
+          };
+
+        transporter.sendMail(mailOptions, function(error, info){
+           if (error) {
+             console.log(error);
+           } else {
+             console.log('Email enviado: ' + info.response);
+           }
+        });
+
     } catch (error) {
         
     }
