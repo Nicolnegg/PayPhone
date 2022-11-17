@@ -4,6 +4,7 @@ import { Layout, Menu} from 'antd'
 import { logout } from "../api/auth"
 import MenuBackground from "../assets/images/menu-lat.png";
 import Logo from "../assets/images/Logo.png"
+import exito from "../assets/images/exito.png"
 
 
 function Sidebar (props)  {
@@ -83,6 +84,13 @@ function Sidebar (props)  {
         )
         else return(
             <Menu theme='dark' mode='inline' defaultSelectedKeys={[defaultKeys]}>
+                <Menu.Item key="1">
+                    <Link to="../Productos">
+                        <span>
+                            Éxito
+                        </span>
+                    </Link>
+                </Menu.Item>
                 <Menu.Item key="1">
                     <Link to="../buscar">
                         <span>
@@ -182,6 +190,9 @@ function Sidebar (props)  {
             <div className="top mt-3">
                 <Link to={rol}>
                     <img className="logo d-flex justify-content-center" src={Logo} alt="PayPhone"/>
+                </Link>
+                <Link to={rol}>
+                    <img className="logo d-flex justify-content-center" src={exito} alt="Exito"/>
                 </Link>
             </div>
             <div className="center mt-5">
