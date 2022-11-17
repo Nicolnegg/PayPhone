@@ -12,7 +12,7 @@ const Recomendaciones = () => {
 
   const[recomendacion, setRecomendacion] = useState([])
 
-    const UserId = jwtDecode(getAccessToken()).sub.id;
+    const UserId = jwtDecode(getAccessToken()).id;
     const[ordenes, setOrdenes] = useState([])
 
     useEffect(() => {

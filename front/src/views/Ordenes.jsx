@@ -8,7 +8,7 @@ import ModalReview from "../components/ModalReview";
 
 const Ordenes = () => {
 
-    const UserId = jwtDecode(getAccessToken()).sub.id;
+    const UserId = jwtDecode(getAccessToken()).id;
     const[ordenes, setOrdenes] = useState([])
 
     useEffect(() => {

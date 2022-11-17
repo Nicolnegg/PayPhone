@@ -29,7 +29,7 @@ const Perfil = () => {
         setShow2(true);
     }
 
-    const UserId = jwtDecode(getAccessToken()).sub.id;
+    const UserId = jwtDecode(getAccessToken()).id;
 
     const[url, setUrl] = useState({
         thumbnailUrl: ""
@@ -284,7 +284,7 @@ const Perfil = () => {
         )
     }
 
-    if(!isAdmin) {
+    if(true) {
         return (
             <>
             <div className="contenedorPerfil text-center d-flex">
