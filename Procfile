@@ -1,3 +1,4 @@
 web: npm start
-web: npm i
+web: cd front
 web: npm run dev
+web: cd node
