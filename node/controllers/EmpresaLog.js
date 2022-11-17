@@ -28,11 +28,12 @@ export async function crearCuenta_empresa(req,res){
                                 console.log(error);
                                 res.json({ isOK: false, msj: "Empresa almacenado de forma INCORRECTA" })
                             } else {
-                                res.json({ isOK: true, msj: "Empresa almacenado de forma correcta" })
-                                console.log(results.insertId);
-                                req.session['passport'] = { user: {id:results.insertId} };
-                                console.log(req.session.passport.user.id);
                                 
+                                console.log(results.insertId);
+                                req.session['passport'] = { user: '' }
+                                req.session.passport.user = {usuario_id:results.insertId}
+                                console.log(req.session.passport.user.usuario_id);
+                                res.json({ isOK: true, msj: "Empresa almacenado de forma correcta" })
                             }
                         })
 
@@ -72,11 +73,13 @@ export async function crear_establecimiento(req,res){
                     connection.query('INSERT INTO establecimiento SET ?', { nit: nit, administrador_codigo: 1234, nombre: nombre, logo: logo, rut: rut},
                         async (error, results) => {
 
+
                             if (error) {
                                 console.log(error);
                                 res.json({ isOK: false, msj: "Establecimiento almacenado de forma INCORRECTA" })
                             } else {
-                                connection.query('INSERT INTO administrador SET ?', { establecimiento_nit: nit, usuario_id: req.session.passport.user.id, activo: 0}, async (error, results) => {
+                                console.log(req.session)
+                                connection.query('INSERT INTO administrador SET ?', { establecimiento_nit: nit, usuario_id: req.session.passport.user.usuario_id, activo: 0}, async (error, results) => {
                                     if (error) {
                                         console.log(error);
                                         res.json({ isOK: false, msj: "Administrador  almacenado de forma INCORRECTA" })
