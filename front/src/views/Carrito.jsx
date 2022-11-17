@@ -20,7 +20,7 @@ const Carrito = () => {
         currency: "USD"
     };
   
-  const UserId = jwtDecode(getAccessToken()).sub.id;
+  const UserId = jwtDecode(getAccessToken()).id;
   const[items, setItems] = useState([])
   const [sesion ,setSesion] = useState([])
 

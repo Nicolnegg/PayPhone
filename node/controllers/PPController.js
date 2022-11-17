@@ -58,6 +58,7 @@ export async function verificarUsuario(req, res) {
     try {
         const correo = req.body.correo;
         const contrasenia = req.body.contrasenia;
+        var esAdmin = 0;
         let hashed = await bcrypt.hash(contrasenia, saltRounds);
         
         if(correo && contrasenia){
@@ -68,6 +69,11 @@ export async function verificarUsuario(req, res) {
                     res.json({ isOK: false, msj: "Usuario o contraseña incorrecta" })
                 }else{
                     //campos de login
+                    connection.query('SELECT activo FROM administrador WHERE usuario_id =', [results[0].usuario_id], async (error, resp) => {
+                        if(resp != null){
+                            esAdmin = resp[0]
+                        }
+                    })
                     req.session['passport'] = { user: '' }
                     req.session['productos'] = { total: 0 }
                     req.session.passport.user = results[0]
@@ -76,7 +82,8 @@ export async function verificarUsuario(req, res) {
                     const token = jwt.sign(
                         {
                         name: req.session.passport.user.nombre,
-                        id: req.session.passport.user.usuario_id
+                        id: req.session.passport.user.usuario_id,
+                        isAdmin: esAdmin
                         }, 
                     'secret_key')
 
@@ -163,7 +170,7 @@ export async function recuperarContraseña(req, res){
 
 export async function consultarUsuario(req,res){
     try {
-        const usuario_id = req.body.usuario_id;
+        const usuario_id = req.params.userId;
         connection.query('SELECT cedula, nombre, apellido, correo, direccion, ciudad, celular, genero, fecha_nacimiento FROM usuario WHERE usuario_id = ? ', [usuario_id], async (error, results) => {
             if (results[0] == null ) {
                 res.json({ error })

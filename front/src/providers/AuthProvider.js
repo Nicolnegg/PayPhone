@@ -33,8 +33,8 @@ function checkUserLogin(setUser) {
               isadmin: false
             });
         } else {
-            const user = jwtDecode(accessToken).sub.username
-            const free = jwtDecode(accessToken).sub.isAdmin
+            const user = jwtDecode(accessToken).name
+            const free = jwtDecode(accessToken).isAdmin
             setUser({
                 isLoading: false,
                 user: user,

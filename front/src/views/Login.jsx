@@ -59,12 +59,11 @@ function Login (){
     else{
       const free = jwtDecode(result)
       localStorage.setItem(TOKEN, result);
-        // if(free.sub.isAdmin){
-        //   window.location.href = "admin";
-        // }else{
-        //   window.location.href = "usuario";
-        // }
-        navigate('/profile')
+        if(free.isAdmin){
+          window.location.href = "admin";
+        }else{
+          window.location.href = "usuario/perfil";
+        }
     }
   }
 
