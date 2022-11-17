@@ -1,7 +1,5 @@
 import connection from "../database/db.js";
-import pdf from "html-pdf";
 import fs from "fs";
-//import ubicacionPlantilla from "../view/facturaPDF.html";
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const ubicacionPlantilla = require.resolve("../view/facturaPDF.html");

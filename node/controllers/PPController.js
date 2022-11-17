@@ -19,9 +19,8 @@ export async function crearCuenta(req,res){
 
         if(contrasenia == confirmacionClave){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
-                console.log(Object.keys(results).length);
                 //revisar que el correro no este usado ya
-                if (Object.keys(results).length == 0 ) {
+                if (results[0] == null ) {
                     //encripta clave
                     let hashed = await bcrypt.hash(contrasenia, saltRounds);
                     console.log(hashed);
@@ -64,13 +63,10 @@ export async function verificarUsuario(req, res) {
         
         if(correo && contrasenia){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
-
-                console.log(Object.keys(results).length);
                 
-                
-                if (Object.keys(results).length == 0 || !(await bcrypt.compare(contrasenia,results[0].contrasenia))){
+                if (results[0] == null || !(await bcrypt.compare(contrasenia,results[0].contrasenia))){
                     
-                    res.json({ isOK: false, msj: "usuario o contraseña incorrecta" })
+                    res.json({ isOK: false, msj: "Usuario o contraseña incorrecta" })
                 }else{
                     //campos de login
                     connection.query('SELECT activo FROM administrador WHERE usuario_id =', [results[0].usuario_id], async (error, resp) => {
@@ -141,7 +137,7 @@ export async function recuperarContraseña(req, res){
         });
 
         connection.query('SELECT contrasenia FROM usuario WHERE correo = ?', [correo], async (error, results) => {
-            if (results == null){
+            if (results[0] == null){
                 //TODO: Convertir contraseña
                 res.json({ error })
             }else{
@@ -176,7 +172,7 @@ export async function consultarUsuario(req,res){
     try {
         const usuario_id = req.params.userId;
         connection.query('SELECT cedula, nombre, apellido, correo, direccion, ciudad, celular, genero, fecha_nacimiento FROM usuario WHERE usuario_id = ? ', [usuario_id], async (error, results) => {
-            if (results == null ) {
+            if (results[0] == null ) {
                 res.json({ error })
             } else {
                 res.json({ results })

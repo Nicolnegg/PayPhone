@@ -27,19 +27,19 @@ export const Footer = () => {
                 </div>
                 <div className="col">
                     <a target="_blank" className="text-white mx-3" href="https://www.instagram.com/manuelma_4/"><i className="fa fa-instagram big-icon mx-3"></i></a>
-                    <h6 className="text-white mx-3">@manuelma_4</h6>
+                    <h6 className="text-white mx-3">@Payphone</h6>
                 </div>
                 <div className="col">
                     <a target="_blank" className="text-white mx-3" href="https://www.facebook.com/manueldavid.maya/"><i className="fa fa-facebook big-icon mx-3"></i></a>
-                    <h6 className="text-white mx-3">@Manuel_Maya</h6>
+                    <h6 className="text-white mx-3">@Payphone</h6>
                 </div>
                 <div className="col">
                     <a target="_blank" className="text-white mx-3" href="https://twitter.com/ManuelD_Maya"><i className="fa fa-twitter big-icon mx-3"></i></a>
-                    <h6 className="text-white mx-3">@Manuel_Maya</h6>
+                    <h6 className="text-white mx-3">@Payphone</h6>
                 </div>
                 <div className="col">
                     <a target="_blank" className="text-white mx-3" href="mailto:manueldmaya@gmail.com"><i className="fa fa-envelope big-icon mx-3"></i></a>
-                    <h6 className="text-white mx-3">manueldmaya@gamil.com</h6>
+                    <h6 className="text-white mx-3">Payphone@gmail.com</h6>
                 </div>
             </div>
             <h5 className="footer_element text-decoration-underline">
