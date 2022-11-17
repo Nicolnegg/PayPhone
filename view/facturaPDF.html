@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Factura</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-10 ">
+                 <img class="img"  src="https://github.com/Nicolnegg/PayPhone/blob/Front/front/src/assets/images/Logo.png?raw=true" alt="PayPhone"  width="300" >
+            </div>
+            <div class="col-xs-2">
+                <img class="img" src="https://github.com/Nicolnegg/PayPhone/blob/Front/front/public/Icono_web.png?raw=true" alt="Logotipo" width="200">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-10">
+                <h1>Factura electronica</h1>
+            </div>
+            <div class="col-xs-2 text-center">
+                <strong>Fecha</strong>
+                <br>
+                <div>
+                    <script type="text/javascript">
+                        var d = new Date();
+                        document.write(d.getDate(),'/'+(d.getMonth()+1),'/'+d.getFullYear(),'<br>Hora: '+d.getHours(),':'+d.getMinutes(),':'+d.getSeconds());
+                        </script>
+                </div>
+                <strong>Factura No.</strong>
+                <br>
+                1
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center" style="margin-bottom: 2rem;">
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-condensed table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Cantidad</th>
+                            <th>Precio unitario</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{tablaProductos}}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="text-right">
+                                <h4>Total</h4>
+                            </td>
+                            <td>
+                                <h4>{{total}}</h4>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <p class="h5">Gracias por su compra</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
