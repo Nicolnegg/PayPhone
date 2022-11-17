@@ -63,7 +63,7 @@ export async function verificarUsuario(req, res) {
         if(correo && contrasenia){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
                 
-                if (results == null || !(await bcrypt.compare(contrasenia,results[0].contrasenia))){
+                if (results[0] == null || !(await bcrypt.compare(contrasenia,results[0].contrasenia))){
                     
                     res.json({ isOK: false, msj: "Usuario o contraseña incorrecta" })
                 }else{
@@ -130,7 +130,7 @@ export async function recuperarContraseña(req, res){
         });
 
         connection.query('SELECT contrasenia FROM usuario WHERE correo = ?', [correo], async (error, results) => {
-            if (results == null){
+            if (results[0] == null){
                 //TODO: Convertir contraseña
                 res.json({ error })
             }else{
@@ -165,7 +165,7 @@ export async function consultarUsuario(req,res){
     try {
         const usuario_id = req.body.usuario_id;
         connection.query('SELECT cedula, nombre, apellido, correo, direccion, ciudad, celular, genero, fecha_nacimiento FROM usuario WHERE usuario_id = ? ', [usuario_id], async (error, results) => {
-            if (results == null ) {
+            if (results[0] == null ) {
                 res.json({ error })
             } else {
                 res.json({ results })

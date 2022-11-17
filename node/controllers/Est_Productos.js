@@ -8,9 +8,8 @@ export async function agregarProducto(req, res){
         const imagen = req.body.imagen;
         const categoria = req.body.categoria;
         connection.query('SELECT * FROM producto WHERE nombre = ? ', [nombre], async (error, results) => {
-            console.log(Object.keys(results).length);
             //revisar que el nombre sea diferente o si no ya creo el producto
-            if (Object.keys(results).length == 0 ) {
+            if (results[0] == null) {
                 //revisat id punto de atencion PREGUNTAR DIEGO
                 connection.query('INSERT INTO producto SET ?', { punto_atencion_id: xxxxxxxxxx, nombre: nombre, precio_venta: precio_venta, cantidad: cantidad, imagen: imagen, categoria: categoria},
                         async (error, results) => {
