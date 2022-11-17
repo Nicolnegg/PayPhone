@@ -37,7 +37,10 @@ export default function Products() {
           <input type="search" name="" id="" />
         </form>
         <div className="d-flex gap-2">
-          <div className="position-relative bg-success p-2 rounded">
+          <div
+            className="position-relative p-2 rounded"
+            style={{ background: "#ff914d" }}
+          >
             <i class="bi bi-cart text-white" aria-label="Carrito de compras" />
             {count > 0 && (
               <span
@@ -55,10 +58,11 @@ export default function Products() {
             )}
           </div>
           <button
-            className="btn btn-danger"
+            className="btn"
             aria-label="Limpiar carrito"
             onClick={() => setCount(0)}
             disabled={count === 0}
+            style={{ background: "#202f56" }}
           >
             <i class="bi bi-trash text-white" />
           </button>
@@ -93,15 +97,17 @@ export default function Products() {
                 <p>{formatCurrency(precio_venta)}</p>
                 <div className="d-flex justify-content-end gap-2">
                   <button
-                    className="btn btn-danger"
+                    className="btn"
                     onClick={() => setCount((c) => c - 1)}
                     disabled={count === 0}
+                    style={{ background: "#202f56" }}
                   >
                     <i class="bi bi-trash text-white" />
                   </button>
                   <button
-                    className="btn btn-success"
+                    className="btn"
                     onClick={() => setCount((c) => c + 1)}
+                    style={{ background: "#ff914d" }}
                   >
                     Anadir al carrito
                   </button>
