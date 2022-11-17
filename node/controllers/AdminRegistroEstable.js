@@ -16,9 +16,8 @@ export async function crearCuenta_empresa(req,res){
 
         if(contrasenia == confirmacionClave){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
-                console.log(Object.keys(results).length);
                 //revisar que el correro no este usado ya
-                if (Object.keys(results).length == 0 ) {
+                if (results[0] == null ) {
                     //encripta clave
                     let hashed = await bcrypt.hash(contrasenia, saltRounds);
                     console.log(hashed);
@@ -68,9 +67,8 @@ export async function crear_establecimiento(req,res){
         const rut = req.body.rut;
 
             connection.query('SELECT * FROM establecimiento WHERE nit = ? ', [nit], async (error, results) => {
-                console.log(Object.keys(results).length);
                 //revisar que el nit no este usado ya
-                if (Object.keys(results).length == 0 ) {
+                if (result[0] == null ) {
                     //insertar valores
                     connection.query('INSERT INTO establecimiento SET ?', { nit: nit, administrador_codigo: 1234, nombre: nombre, logo: logo, rut: rut},
                         async (error, results) => {

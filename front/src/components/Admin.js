@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import { buscarAdmin } from '../api/buscar';
 import BusquedaAdmin from './buscar/BusquedaAdmin';
+const axios = require('axios').default;
 
 export const Admin = () => {
   const[admin, setAdmin] = useState([])

@@ -16,7 +16,10 @@ const router = express.Router();
 
 
 router.post("/registro", ctrUser.crearCuenta)
+router.get("/recuperar-contraseña", ctrUser.recuperarContraseña)
 router.post("/login", ctrUser.verificarUsuario,)
+router.get("/configuracion-usuario", ctrUser.consultarUsuario)
+router.post("/configuracion-usuario", ctrUser.actualizarCuenta)
 router.get("/google", passport.authenticate('google',{
     scope: ['profile']
 }))  // vemos todos los perfiles de google

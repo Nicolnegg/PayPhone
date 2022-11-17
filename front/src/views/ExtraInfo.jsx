@@ -1,6 +1,7 @@
 import { React, useState } from "react"
 import QuienesSomos from "./info/QuienesSomos"
 import Legal from "./info/Legal"
+import Blog from "./info/Blog";
 
 const ExtraInfo = () => {
     const[activo, setActivo] = useState("QuienesSomos")
@@ -12,6 +13,9 @@ const ExtraInfo = () => {
       else if(activo === 'Legal') {
           return (<Legal/>)
       }
+      else if(activo === 'Blog') {
+        return (<Blog/>)
+      }
   }
   
 
@@ -22,6 +26,7 @@ const ExtraInfo = () => {
               <nav className="mb-4 fw-bold w-100 d-flex">
                   <button className="btn2 rounded btn-primary fw-bold mx-auto" onClick={()=>setActivo("Legal")}>Aviso legal</button>
                   <button className="btn2 rounded btn-primary fw-bold mx-auto" onClick={()=>setActivo("QuienesSomos")}>¿Quiénes somos?</button>
+                  <button className="btn2 rounded btn-primary fw-bold mx-auto" onClick={()=>setActivo("Blog")}>Nuestro Blog</button>
               </nav>
             {selection()}
         </div>

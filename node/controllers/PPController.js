@@ -19,9 +19,8 @@ export async function crearCuenta(req,res){
 
         if(contrasenia == confirmacionClave){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
-                console.log(Object.keys(results).length);
                 //revisar que el correro no este usado ya
-                if (Object.keys(results).length == 0 ) {
+                if (results[0] == null ) {
                     //encripta clave
                     let hashed = await bcrypt.hash(contrasenia, saltRounds);
                     console.log(hashed);
@@ -63,13 +62,10 @@ export async function verificarUsuario(req, res) {
         
         if(correo && contrasenia){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
-
-                console.log(Object.keys(results).length);
                 
-                
-                if (Object.keys(results).length == 0 || !(await bcrypt.compare(contrasenia,results[0].contrasenia))){
+                if (results[0] == null || !(await bcrypt.compare(contrasenia,results[0].contrasenia))){
                     
-                    res.json({ isOK: false, msj: "usuario o contraseña incorrecta" })
+                    res.json({ isOK: false, msj: "Usuario o contraseña incorrecta" })
                 }else{
                     //campos de login
                     req.session['passport'] = { user: '' }
@@ -98,7 +94,6 @@ export async function verificarUsuario(req, res) {
     } catch (error) {
         res.json({ message: error.message })
     }
-    
 }
 
 passport.serializeUser(function (user, done) {
@@ -120,8 +115,88 @@ export async function pago_despues_carrito(req, res) {
 
 export async function recuperarContraseña(req, res){
     try {
+        const correo = req.body.correo;
+
+        //Requerimos el paquete
+        var nodemailer = require('nodemailer');
+
+        //Creamos el objeto de transporte
+        var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'payphonecol@gmail.com',
+            pass: 'payphone1234'
+        }
+        });
+
+        connection.query('SELECT contrasenia FROM usuario WHERE correo = ?', [correo], async (error, results) => {
+            if (results[0] == null){
+                //TODO: Convertir contraseña
+                res.json({ error })
+            }else{
+                res.json({ results })
+            }
+        })
+
+        var mensaje = "Hola! usuario PayPhone, aqui esta tu contraseña" + results[0];
         
+        var mailOptions = {
+            from: 'payphonecol@gmail.com',
+            to: correo,
+            subject: 'Recuperación de contraseña',
+            text: mensaje
+          };
+
+
+        transporter.sendMail(mailOptions, function(error, info){
+           if (error) {
+             console.log(error);
+           } else {
+             console.log('Email enviado: ' + info.response);
+           }
+        });
+
     } catch (error) {
         
+    }
+}
+
+export async function consultarUsuario(req,res){
+    try {
+        const usuario_id = req.body.usuario_id;
+        connection.query('SELECT cedula, nombre, apellido, correo, direccion, ciudad, celular, genero, fecha_nacimiento FROM usuario WHERE usuario_id = ? ', [usuario_id], async (error, results) => {
+            if (results[0] == null ) {
+                res.json({ error })
+            } else {
+                res.json({ results })
+            }
+        })
+    } catch (error) {
+        
+    }
+}
+
+export async function actualizarCuenta(req,res){
+    try {
+        const nombre = req.body.nombre;
+        const apellido = req.body.apellido;
+        const correo = req.body.correo;
+        const direccion = req.body.direccion;
+        const ciudad = req.body.ciudad;
+        const celular = req.body.celular;
+        const genero = req.body.genero;
+        const fecha_nacimiento = req.body.fecha_nacimiento;
+
+        connection.query('UPDATE usuario SET ?', { nombre: nombre, apellido: apellido, correo: correo, direccion: direccion, ciudad: ciudad, celular: celular, genero: genero, fecha_nacimiento: fecha_nacimiento },
+            async (error, results) => {
+                if (error) {
+                    res.json({ error })
+                } else {
+                    res.json({ isOK: true, msj: "Usuario almacenado de forma correcta" })
+                }
+            })
+
+    } catch(error) {
+        res.json({ message: error.message })
     }
 }
