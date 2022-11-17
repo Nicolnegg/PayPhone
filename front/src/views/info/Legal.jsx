@@ -157,7 +157,7 @@ const Legal = () => {
                         <hr className="separador"/>
                         <h3 className="welcome1 fw-bold">¿Quién es el responsable del tratamiento de la información?</h3>
                         <p className="w-75 mx-auto">
-                            Free-Lánzat es el responsable del tratamiento de los datos de los usuarios y de los
+                            PayPhone es el responsable del tratamiento de los datos de los usuarios y de los
                             visitantes de sus Plataformas
                             a través de sus empresas subsidiarias o filiales.
                             <br/>

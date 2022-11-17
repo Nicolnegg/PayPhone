@@ -64,7 +64,7 @@ const Recomendaciones = () => {
       <div className="contenedorPerfil text-center d-flex">
         <div className="container rounded row w-100">
             <div className="welcome2">
-                <h5 className="text-center mt-1 mb-3 fw-bold yellow">Los elegidos de FreeLánzate</h5>
+                <h5 className="text-center mt-1 mb-3 fw-bold yellow">Los elegidos de payphone</h5>
                 <div className="d-flex align-items-center justify-content-center">
                     <Table hover variant="light">
                         <thead>
