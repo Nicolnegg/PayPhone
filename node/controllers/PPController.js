@@ -19,9 +19,8 @@ export async function crearCuenta(req,res){
 
         if(contrasenia == confirmacionClave){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
-                console.log(Object.keys(results).length);
                 //revisar que el correro no este usado ya
-                if (Object.keys(results).length == 0 ) {
+                if (results == null ) {
                     //encripta clave
                     let hashed = await bcrypt.hash(contrasenia, saltRounds);
                     console.log(hashed);
@@ -63,13 +62,10 @@ export async function verificarUsuario(req, res) {
         
         if(correo && contrasenia){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
-
-                console.log(Object.keys(results).length);
                 
-                
-                if (Object.keys(results).length == 0 || !(await bcrypt.compare(contrasenia,results[0].contrasenia))){
+                if (results == null || !(await bcrypt.compare(contrasenia,results[0].contrasenia))){
                     
-                    res.json({ isOK: false, msj: "usuario o contraseña incorrecta" })
+                    res.json({ isOK: false, msj: "Usuario o contraseña incorrecta" })
                 }else{
                     //campos de login
                     req.session['passport'] = { user: '' }
