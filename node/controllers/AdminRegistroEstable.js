@@ -27,13 +27,14 @@ export async function crearCuenta_empresa(req,res){
 
                             if (error) {
                                 console.log(error);
-                                res.json({ isOK: false, msj: "Empresa almacenado de forma INCORRECTA en modo administrador" })
+                                res.json({ isOK: false, msj: "Empresa almacenado de forma INCORRECTA" })
                             } else {
-                                res.json({ isOK: true, msj: "Empresa almacenado de forma correcta en modo administrador" })
-                                console.log(results.insertId);
-                                req.session['passport'] = { user: {id:results.insertId} };
-                                console.log(req.session.passport.user.id);
                                 
+                                console.log(results.insertId);
+                                req.session['passport'] = { user: '' }
+                                req.session.passport.user = {usuario_id:results.insertId}
+                                console.log(req.session.passport.user.usuario_id);
+                                res.json({ isOK: true, msj: "Empresa activa almacenado de forma correcta" })
                             }
                         })
 
@@ -74,16 +75,18 @@ export async function crear_establecimiento(req,res){
                     connection.query('INSERT INTO establecimiento SET ?', { nit: nit, administrador_codigo: 1234, nombre: nombre, logo: logo, rut: rut},
                         async (error, results) => {
 
+
                             if (error) {
                                 console.log(error);
                                 res.json({ isOK: false, msj: "Establecimiento almacenado de forma INCORRECTA" })
                             } else {
-                                connection.query('INSERT INTO administrador SET ?', { establecimiento_nit: nit, usuario_id: req.session.passport.user.id, activo: 1}, async (error, results) => {
+                                console.log(req.session)
+                                connection.query('INSERT INTO administrador SET ?', { establecimiento_nit: nit, usuario_id: req.session.passport.user.usuario_id, activo: 1}, async (error, results) => {
                                     if (error) {
                                         console.log(error);
-                                        res.json({ isOK: false, msj: "Administrador  almacenado de forma INCORRECTA en modo administrados" })
+                                        res.json({ isOK: false, msj: "Administrador activo  almacenado de forma INCORRECTA" })
                                     } else {
-                                        res.json({ isOK: true, msj: "Administrador  Y Establecimento almacenado de forma correcta en modo administardor" })
+                                        res.json({ isOK: true, msj: "Administrador  Y Establecimento  activo almacenado de forma correcta" })
                                     }
                                 })
                             }

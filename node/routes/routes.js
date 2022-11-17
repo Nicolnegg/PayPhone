@@ -10,6 +10,7 @@ import * as UserEmpresa from "../controllers/EmpresaLog.js";
 import * as establecimientoAdmin from "../controllers/EstablecimientoController.js";
 import * as AdminLogin_Est from "../controllers/AdminRegistroEstable.js";
 import * as factura from "../controllers/Factura_electronica.js";
+import * as adminProductos from "../controllers/Est_Productos.js";
 
 const router = express.Router();
 
@@ -38,10 +39,11 @@ router.post("/registro-empresa", UserEmpresa.crearCuenta_empresa)
 router.post("/registro-establecimiento", UserEmpresa.crear_establecimiento)
 router.get("/lista-establecimientos", establecimientoAdmin.AceptarEstableciemiento)
 router.post("/activar-establecimientos", establecimientoAdmin.ActivarEstableciemiento)
-router.post("/registro-empresa", UserEmpresa.crearCuenta_empresa)
 router.post("/registro-establecimiento", UserEmpresa.crear_establecimiento)
+
 router.post("/Admin-empresa", AdminLogin_Est.crearCuenta_empresa)
 router.post("/Admin-establecimiento", AdminLogin_Est.crear_establecimiento)
 router.get("/factura-electronica", factura.generafactura_pdf)
+router.post("/crear-PA", adminProductos.agregarPA)
 
 export default router;
