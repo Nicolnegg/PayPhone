@@ -1,5 +1,4 @@
 import connection from "../database/db.js";
-import Categoria from './../../front/src/components/buscar/Categoria';
 
 export async function productosMenu(req, res) {
     try{
