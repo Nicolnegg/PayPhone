@@ -25,8 +25,8 @@ function Login (){
     }
 
   const [inputs, setInputs] = useState({
-    email: "",
-    password: ""
+    correo: "",
+    contrasenia: ""
   });
 
   const changeForm = e => {
@@ -59,12 +59,11 @@ function Login (){
     else{
       const free = jwtDecode(result)
       localStorage.setItem(TOKEN, result);
-        // if(free.sub.isAdmin){
-        //   window.location.href = "admin";
-        // }else{
-        //   window.location.href = "usuario";
-        // }
-        navigate('/profile')
+        if(free.isAdmin){
+          window.location.href = "admin";
+        }else{
+          window.location.href = "usuario/perfil";
+        }
     }
   }
 
@@ -80,7 +79,7 @@ function Login (){
                             type="email"
                             className="form-control mb-3"
                             id="email"
-                            name="email"
+                            name="correo"
                             placeholder="username"
                     />
                     <label htmlFor="email">Correo electrónico</label>
@@ -90,7 +89,7 @@ function Login (){
                             type="password"
                             className="form-control mb-3"
                             id="password"
-                            name="password"
+                            name="contrasenia"
                             placeholder="Password"
                     />
                     <label htmlFor="password">Contraseña</label>

@@ -40,7 +40,7 @@ function Usuario (props) {
       localStorage.setItem("ERR","Estás registrado como admin. Para acceder al rol de usuario y/o visitante debes cerrar sesión.")
       return(
         <>
-        <Navigate to = "/freelanzer" />
+        <Navigate to = "/adminn" />
         </>
       )
     }
