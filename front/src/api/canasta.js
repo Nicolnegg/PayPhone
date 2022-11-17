@@ -16,7 +16,7 @@ export function traerItemsCanasta(id){
   }
 
   export function agregarItem(data) {
-    const url = 'http://localhost:8000/shopping/addItem';
+    const url = 'http://localhost:8000/agrega-producto';
     const params = {
       method: "POST",
       body: JSON.stringify(data),
