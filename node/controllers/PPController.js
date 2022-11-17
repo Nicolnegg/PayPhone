@@ -20,7 +20,7 @@ export async function crearCuenta(req,res){
         if(contrasenia == confirmacionClave){
             connection.query('SELECT * FROM usuario WHERE correo = ? ', [correo], async (error, results) => {
                 //revisar que el correro no este usado ya
-                if (results == null ) {
+                if (results[0] == null ) {
                     //encripta clave
                     let hashed = await bcrypt.hash(contrasenia, saltRounds);
                     console.log(hashed);
