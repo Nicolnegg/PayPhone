@@ -92,6 +92,14 @@ function Sidebar (props)  {
                     </Link>
                 </Menu.Item>
                 <Menu.Item key="2">
+                    <Link to="../Productos">
+                        <span>
+                            <i className="bi bi-patch-check-fill me-3"> </i>
+                            Todos los productos
+                        </span>
+                    </Link>
+                </Menu.Item>
+                <Menu.Item key="3">
                     <Link to="../perfil">
                         <span>
                             <i className="bi bi-person-fill me-3"> </i>
@@ -99,7 +107,7 @@ function Sidebar (props)  {
                         </span>
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="3">
+                <Menu.Item key="4">
                     <Link to="../ordenes">
                         <span>
                             <i className="bi bi-card-list me-3"> </i>
@@ -107,7 +115,7 @@ function Sidebar (props)  {
                         </span>
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="4">
+                <Menu.Item key="5">
                     <Link to="../recomendaciones">
                         <span>
                             <i className="bi bi-bookmark-heart-fill me-3"> </i>
@@ -115,7 +123,7 @@ function Sidebar (props)  {
                         </span>
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="5">
+                <Menu.Item key="6">
                     <Link to="../carrito">
                         <span>
                             <i className="bi bi-cart-dash-fill me-3"> </i>
