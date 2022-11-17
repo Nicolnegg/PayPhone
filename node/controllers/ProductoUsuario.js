@@ -2,7 +2,7 @@ import connection from "../database/db.js";
 
 export async function productosMenu(req, res) {
     try{
-        const punto_atencion_id = req.body.punto_atencion_id;
+        const punto_atencion_id = req.params.punto_atencion_id;
 
         connection.query('SELECT nombre, precio_venta, cantidad, imagen FROM producto WHERE activo = 1 AND punto_atencion_id = ?', [punto_atencion_id], async (error, results) => {
             if (results[0] == null){
