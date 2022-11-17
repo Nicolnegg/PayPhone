@@ -1,3 +1,3 @@
-web: /front npm i
-web: /front npm start
-web: /node npm run dev
+web: npm start
+web: npm i
+web: npm run dev
