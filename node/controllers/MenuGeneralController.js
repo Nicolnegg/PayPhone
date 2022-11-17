@@ -2,7 +2,7 @@ import connection from "../database/db.js";
 
 export async function consultarEstablecimiento(req, res) {
     try{
-        connection.query('SELECT nit, nombre, logo FROM establecimiento', async (error, results) => {
+        connection.query('SELECT nit, nombre, logo FROM establecimiento WHERE activo = 1', async (error, results) => {
             console.log(Object.keys(results).length);
             if (Object.keys(results).length == 0){
                 

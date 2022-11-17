@@ -10,6 +10,7 @@ const Producto= db.define('establecimiento',{
     precio_venta: { type: DataTypes.DOUBLE },
     cantidad: { type: DataTypes.INTEGER },
     imagen: { type: DataTypes.STRING },
+    categoria: { type: DataTypes.INTEGER },
     activo: { type: DataTypes.TINYINT },
 })
 
