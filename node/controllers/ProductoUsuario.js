@@ -1,5 +1,5 @@
 import connection from "../database/db.js";
-import Categoria from './../../front/src/components/buscar/Categoria';
+// import Categoria from './../../front/src/components/buscar/Categoria';
 
 export async function productosMenu(req, res) {
     try{
@@ -17,7 +17,7 @@ export async function productosMenu(req, res) {
     }
 }
 
-export async function productosMenu(req, res) {
+export async function productosMenu1(req, res) {
     try{
         const punto_atencion_id = req.body.punto_atencion_id;
 
