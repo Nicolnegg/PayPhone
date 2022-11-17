@@ -1,2 +1,2 @@
-web: /node npm run dev
-web: /front npm start
+web: ./front npm start
+web: ./node npm run dev
