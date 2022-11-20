@@ -6,6 +6,7 @@ import RestablecerPassword from "./views/RestablecerPassword";
 import Buscar from "./views/Buscar";
 import Visitante from "./layouts/Visitante";
 import ExtraInfo from "./views/ExtraInfo";
+import EleccionSupermercado from "./views/EleccionSupermercado";
 
 const routesVisitante = [
 
@@ -43,7 +44,13 @@ const routesVisitante = [
         path: '/informacionExtra',
         component: ExtraInfo,
         layout: Visitante,
+    },
+    {
+        path: '/eleccionSupermercado',
+        component: EleccionSupermercado,
+        layout: Visitante,
     }
+
 ]
 
 const visitorRoutes = [...routesVisitante]

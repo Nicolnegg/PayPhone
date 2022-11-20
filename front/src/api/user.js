@@ -13,6 +13,38 @@ export function registro(data) {
 
   return fetch(url, params)
     .then((response) => {
+      return response.text();
+    })
+    .then((result) => {
+      return result;
+    });
+}
+
+/*export function Google(){
+  const url = 'http://localhost:8000/';
+  const params = {
+      headers: {
+          "Content-Type": "application/json"
+      }
+  };
+
+  return fetch(url, params).then(response =>{
+      return response.json();
+  })
+}*/
+
+export function registroAdmin(data) {
+  const url = "http://localhost:8000/register/admin";
+  const params = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  return fetch(url, params)
+    .then((response) => {
       return response.json();
     })
     .then((result) => {
@@ -51,8 +83,6 @@ export function iniciar_sesion(data) {
       return result;
     });
 }
-
-export const loginApi = (data) => axios.post("/login", data);
 
 export function registroAdmin(data) {
   const url = "http://localhost:8000/register/admin";
