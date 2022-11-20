@@ -114,7 +114,7 @@ function Login() {
 
         <div className="h3 mb-3 fw-normal">
               
-              <Link to="../localhost8080/google" className="badge mb=2">
+              <Link to="/google" className="badge mb=2">
                 <button
                   className="btn btn-lg btn-primary"
                   type="submit"
@@ -128,14 +128,14 @@ function Login() {
         <div className="h3 mb-3 fw-normal">
           <p>
             ¿No tienes cuenta?
-            <a href="/registro" className="badge mt-4">
+            <a href="/registro" className="badge mt-1">
               Regístrate
             </a>
           </p>
         </div>
 
-        <div className="h3 mb-3 fw-normal">
-          <a href="/" className="mid-badge mt-4">
+        <div className="h3 mb-2 fw-normal">
+          <a href="/" className="mid-badge mt-2">
             <i className="bi bi-house-door-fill"></i>
           </a>
         </div>
