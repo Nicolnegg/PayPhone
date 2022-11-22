@@ -3,7 +3,6 @@ import connection from "../database/db.js";
 export async function getCarrito(req, res){
     const usuario_id = req.body.usuario_id;
     var total = 0;
-    req.session['productos'] = { total: 0 }
 
     connection.query('SELECT P.nombre, P.precio_venta, C.cantidad FROM carrito C, producto P WHERE C.usuario_id = ? AND P.producto_id = C.producto_id', [usuario_id], async (error, results) => {
         if(results){
@@ -24,7 +23,7 @@ export async function getCarrito(req, res){
 export async function agregarCarrito(req, res) {
     console.log("agregando producto al carrito")
     try {
-        const usuario_id = req.session.passport.user.usuario_id;
+        const usuario_id = usuario_id;
         const producto_id = req.body.producto_id;
         const cantidad = req.body.cantidad;
 
@@ -41,18 +40,6 @@ export async function agregarCarrito(req, res) {
         res.json({ message: error.message })
     }
 
-    console.log(req.session)
 }
 
-// export async function getCarrito(req, res) {
-//     try {
-//         const productosCarrito = req.session.productos
-//         console.log("get carrito")
-//         console.log(req.session)
-//         console.log(productosCarrito)
-//         res.json(productosCarrito)
-//     } catch (error) {
-//         res.json({ message: error.message })
 
-//     }
-// }

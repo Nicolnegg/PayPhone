@@ -96,8 +96,7 @@ export async function verificarUsuario(req, res) {
                 }
             })
         }
-        //console.log(req.sessioncookie)
-        //console.log('cookie')
+
     } catch (error) {
         res.json({ message: error.message })
     }
