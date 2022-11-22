@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { getAllProducts } from "../api/products";
 import bg from "../assets/images/fondo.png";
-
+import { agregarItem } from "../api/canasta";
+import { getAccessToken } from "../api/auth";
+import jwtDecode from "jwt-decode";
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(0);
@@ -75,7 +77,7 @@ export default function Products() {
             gap: "2rem",
           }}
         >
-          {products.map(({ nombre, imagen, precio_venta }) => (
+          {products.map(({ producto_id, nombre, imagen, precio_venta }) => (
             <article
               style={{
                 width: "20rem",
@@ -106,7 +108,15 @@ export default function Products() {
                   </button>
                   <button
                     className="btn"
-                    onClick={() => setCount((c) => c + 1)}
+                    onClick={() => {
+                      const itemData = {
+                        userId: jwtDecode(getAccessToken()).id,
+                        product_id: producto_id,
+                        cantidad: 1,
+                      };
+                      setCount((c) => c + 1);
+                      agregarItem(itemData);
+                    }}
                     style={{ background: "#ff914d" }}
                   >
                     Anadir al carrito
