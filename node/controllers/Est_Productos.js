@@ -34,8 +34,9 @@ export async function agregarProducto(req, res){
 
 export async function agregarPA(req, res){
     try {
+        const usuario_id = req.body.usuario_id;
 
-        connection.query('SELECT * FROM administrador WHERE usuario_id = ? ', [req.session.passport.user.usuario_id], async (error, results) => {
+        connection.query('SELECT * FROM administrador WHERE usuario_id = ? ', [usuario_id], async (error, results) => {
             if (Object.keys(results).length > 0 ) {
                 const establecimiento_nit = results[0].establecimiento_nit;
                 const nombre_sede = req.body.nombre_sede;

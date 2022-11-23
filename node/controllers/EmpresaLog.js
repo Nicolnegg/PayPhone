@@ -30,9 +30,7 @@ export async function crearCuenta_empresa(req,res){
                             } else {
                                 
                                 console.log(results.insertId);
-                                req.session['passport'] = { user: '' }
-                                req.session.passport.user = {usuario_id:results.insertId}
-                                console.log(req.session.passport.user.usuario_id);
+            
                                 res.json({ isOK: true, msj: "Empresa almacenado de forma correcta" })
                             }
                         })
@@ -61,6 +59,7 @@ export async function crear_establecimiento(req,res){
     
 
     try{
+        const usuario_id =req.body.usuario_id;
         const nit = req.body.nit;
         const nombre = req.body.nombre;
         const logo = req.body.logo;
@@ -78,8 +77,7 @@ export async function crear_establecimiento(req,res){
                                 console.log(error);
                                 res.json({ isOK: false, msj: "Establecimiento almacenado de forma INCORRECTA" })
                             } else {
-                                console.log(req.session)
-                                connection.query('INSERT INTO administrador SET ?', { establecimiento_nit: nit, usuario_id: req.session.passport.user.usuario_id, activo: 0}, async (error, results) => {
+                                connection.query('INSERT INTO administrador SET ?', { establecimiento_nit: nit, usuario_id: usuario_id, activo: 0}, async (error, results) => {
                                     if (error) {
                                         console.log(error);
                                         res.json({ isOK: false, msj: "Administrador  almacenado de forma INCORRECTA" })
