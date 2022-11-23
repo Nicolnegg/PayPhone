@@ -45,6 +45,19 @@ export function iniciar_sesion(data) {
     })
 }
 
+/*export function Google(){
+  const url = 'http://localhost:8000/';
+  const params = {
+      headers: {
+          "Content-Type": "application/json"
+      }
+  };
+
+  return fetch(url, params).then(response =>{
+      return response.json();
+  })
+}*/
+
 
 export function registroAdmin(data){
   const url = 'http://localhost:8000/register/admin';

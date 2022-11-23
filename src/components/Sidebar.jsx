@@ -4,6 +4,7 @@ import { Layout, Menu} from 'antd'
 import { logout } from "../api/auth"
 import MenuBackground from "../assets/images/menu-lat.png";
 import Logo from "../assets/images/Logo.png"
+import exito from "../assets/images/exito.png"
 
 
 function Sidebar (props)  {
@@ -32,6 +33,11 @@ function Sidebar (props)  {
     function anuncio(rol) {
         if (rol==="/adminn") return(
             <>
+            <div className="top mt-3">
+                    <Link to={rol}>
+                        <img className="logo d-flex justify-content-center" src={exito} alt="Exito"/>
+                    </Link>
+            </div>
             <Menu.Item key="6">
                 <Link to="../tarifa">
                 <span>
@@ -47,6 +53,15 @@ function Sidebar (props)  {
                     Mis ventas
                 </span>
                 </Link>
+                
+            </Menu.Item>
+            <Menu.Item key="8">
+                    <Link to="../eleccionSupermercado">
+                        <span>
+                            <i class="bi bi-arrow-right-circle-fill me-3" ></i>
+                            Elección de supermercado
+                        </span>
+                    </Link>
             </Menu.Item>
             </>
             )
@@ -56,7 +71,10 @@ function Sidebar (props)  {
     function buildMenu(rol) {
         if (rol==="/") return(
             <Menu theme='dark' mode='inline' defaultSelectedKeys={[defaultKeys]}>
+                
+            
                 <Menu.Item key="1">
+                    
                     <Link to="/">
                         <span>
                             <i className="bi bi-search me-3"> </i>
@@ -79,11 +97,32 @@ function Sidebar (props)  {
                         </span>
                     </Link>
                 </Menu.Item>
+                <Menu.Item key="3">
+                    <Link to="../eleccionSupermercado">
+                        <span>
+                            <i class="bi bi-arrow-right-circle-fill me-3"></i>
+                            Elección de supermercado
+                        </span>
+                    </Link>
+                </Menu.Item>
             </Menu>
         )
         else return(
             <Menu theme='dark' mode='inline' defaultSelectedKeys={[defaultKeys]}>
+                <div className="top mt-3">
+                    <Link to={rol}>
+                        <img className="logo d-flex justify-content-center" src={exito} alt="Exito"/>
+                    </Link>
+                </div>
+            
                 <Menu.Item key="1">
+                    <Link to="../Productos">
+                        <span>
+                            Éxito
+                        </span>
+                    </Link>
+                </Menu.Item>
+                <Menu.Item key="2">
                     <Link to="../buscar">
                         <span>
                             <i className="bi bi-search me-3"> </i>
@@ -91,7 +130,15 @@ function Sidebar (props)  {
                         </span>
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="2">
+                <Menu.Item key="3">
+                    <Link to="../Productos">
+                        <span>
+                            <i className="bi bi-patch-check-fill me-3"> </i>
+                            Todos los productos
+                        </span>
+                    </Link>
+                </Menu.Item>
+                <Menu.Item key="4">
                     <Link to="../perfil">
                         <span>
                             <i className="bi bi-person-fill me-3"> </i>
@@ -99,7 +146,7 @@ function Sidebar (props)  {
                         </span>
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="3">
+                <Menu.Item key="5">
                     <Link to="../ordenes">
                         <span>
                             <i className="bi bi-card-list me-3"> </i>
@@ -107,7 +154,7 @@ function Sidebar (props)  {
                         </span>
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="4">
+                <Menu.Item key="6">
                     <Link to="../recomendaciones">
                         <span>
                             <i className="bi bi-bookmark-heart-fill me-3"> </i>
@@ -115,11 +162,19 @@ function Sidebar (props)  {
                         </span>
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="5">
+                <Menu.Item key="7">
                     <Link to="../carrito">
                         <span>
                             <i className="bi bi-cart-dash-fill me-3"> </i>
                             Mi carrito
+                        </span>
+                    </Link>
+                </Menu.Item>
+                <Menu.Item key="8">
+                    <Link to="../eleccionSupermercado">
+                        <span>
+                            <i class="bi bi-arrow-right-circle-fill me-3"></i>
+                            Elección de supermercado
                         </span>
                     </Link>
                 </Menu.Item>
@@ -176,6 +231,8 @@ function Sidebar (props)  {
                     <img className="logo d-flex justify-content-center" src={Logo} alt="PayPhone"/>
                 </Link>
             </div>
+            
+            
             <div className="center mt-5">
                 {buildMenu(rol)}
             </div>

@@ -7,6 +7,7 @@ import Recomendaciones from "./views/Recomendaciones"
 import ExtraInfo from "./views/ExtraInfo"
 import Ventas from "./views/Ventas"
 import Productos from './views/Productos'
+import EleccionSupermercado from "./views/EleccionSupermercado"
 
 const routesSidebar = [
     {
@@ -48,7 +49,12 @@ const routesSidebar = [
     {
         path: 'productos',
         component: Productos
+    },
+    {
+        path: 'eleccionSupermercado',
+        component: EleccionSupermercado
     }
+
 ]
     
 
