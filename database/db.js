@@ -2,10 +2,10 @@ import mysql from "mysql";
 import { Sequelize } from "sequelize";
 
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "payphone"
+    host: "us-cdbr-east-06.cleardb.net",
+    user: "b5d24b42e41a1a",
+    password: "c1ada6da",
+    database: "heroku_b4ea2cfb2e15836"
 });
 
 connection.connect((error) => {
