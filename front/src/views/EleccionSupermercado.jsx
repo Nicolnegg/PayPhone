@@ -30,7 +30,7 @@ const EleccionSupermercado =() => {
                     <div>
                         
                         <div className="top mt-3">
-                            <Link to="../usuario/productos">
+                            <Link to="../productos">
                                 <img className="justify-left" src={carulla} alt="Carulla"/>
                             </Link>
                             <h3 className="welcome1 fw-bold">Carulla</h3>
@@ -42,7 +42,7 @@ const EleccionSupermercado =() => {
 
                         
                         <div className="top mt-3">
-                            <Link to="../usuario/productos">
+                            <Link to="../productos">
                                 <img className="center" src={olimpica} alt="Olimpica"/>
                             </Link>
                             <h3 className="welcome1 fw-bold">Olímpica</h3>
@@ -51,7 +51,7 @@ const EleccionSupermercado =() => {
                         </div>
 
                         <div className="top mt-3">
-                            <Link to="../usuario/productos">
+                            <Link to="../productos">
                                 <img className="center" src={exito} alt="Exito"/>
                             </Link>
                             <h3 className="welcome1 fw-bold">Éxito</h3>
@@ -61,7 +61,7 @@ const EleccionSupermercado =() => {
                         </div>
 
                         <div className="top mt-3">
-                            <Link to="../usuario/productos">
+                            <Link to="../productos">
                                     <img className="center" src={d1} alt="D1"/>
                             </Link>
                             <h3 className="welcome1 fw-bold">Olímpica</h3>
