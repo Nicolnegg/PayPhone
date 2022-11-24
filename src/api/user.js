@@ -1,6 +1,6 @@
 export function registro(data){
   data.username = data.email.substring(0,data.email.indexOf('@'))
-  const url = 'http://localhost:8000/register';
+  const url = '/register';
     const params = {
         method: "POST",
         body: JSON.stringify(data),
@@ -27,7 +27,7 @@ export function registro(data){
 }
 
 export function iniciar_sesion(data) {
-  const url = 'http://localhost:8000/login';
+  const url = '/login';
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -60,7 +60,7 @@ export function iniciar_sesion(data) {
 
 
 export function registroAdmin(data){
-  const url = 'http://localhost:8000/register/admin';
+  const url = '/register/admin';
     const params = {
         method: "POST",
         body: JSON.stringify(data),
@@ -78,7 +78,7 @@ export function registroAdmin(data){
 }
 
 export function miPerfil(id){
-  const url = 'http://localhost:8000/profile/' + id;
+  const url = '/profile/' + id;
   const params = {
     method: "GET",
     headers: {
@@ -95,7 +95,7 @@ export function miPerfil(id){
 }
 
 export function perfilAdmin(id){
-  const url = 'http://localhost:8000/admin/user/' + id;
+  const url = '/admin/user/' + id;
   const params = {
     method: "GET",
     headers: {
@@ -112,7 +112,7 @@ export function perfilAdmin(id){
 }
 
 export function editarPerfil(id, data){
-  const url = 'http://localhost:8000/user/' + id + '/update';
+  const url = '/user/' + id + '/update';
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -130,7 +130,7 @@ export function editarPerfil(id, data){
 }
 
 export function editarPerfilAdmin(id, data){
-  const url = 'http://localhost:8000/admin/' + id + '/update';
+  const url = '/admin/' + id + '/update';
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -148,7 +148,7 @@ export function editarPerfilAdmin(id, data){
 }
 
 export function eliminarUsuario(id){
-  const url = 'http://localhost:8000/user/' + id + '/delete';
+  const url = '/user/' + id + '/delete';
   const params = {
     method: "POST",
     headers: {
