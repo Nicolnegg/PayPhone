@@ -47,15 +47,14 @@ const RegistroAdmin = () => {
      const registrar = async e => {
         e.preventDefault();
         
-        const result = await registroAdmin(inputs);
+        const { data: result } = await axios.post("/registro-empresa", inputs);
+        const {isOK } = result.isOK;
         console.log(result)
-        if (result.id) {
+        if (result.isOK) {
             notification["success"]({
                 message: "Registro correcto"
             });
-            resetForm();
-            localStorage.removeItem('ID')
-            window.location.href = "login";
+            navigate("/login");
         } else {
             notification["error"]({
             message: "Error en el registro"
