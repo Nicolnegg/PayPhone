@@ -42,112 +42,63 @@ const QuienesSomos = () => {
                     <h2 id="Preguntas" className="welcome fw-bold">Preguntas Frecuentes</h2>
                     <hr className="separador"/>
                     <div>
-                        <h3 className="welcome1 fw-bold">Pregunta</h3>
+                        <h3 className="welcome1 fw-bold">¿Cómo crear una cuenta?</h3>
                         <p className="w-75 mx-auto">
-                            Descripción
                             <br/>
+                            En el extremo superior de la página principal encontrarás un botón de inicio de sesión desde aca te 
+                            podrás redirigir a la ventana de registro, solo necesitas llenar unos datos básicos para registrarte como tu cédula, correo. nombre, fecha de nacimiento, etc. Luego puede volver a inicio de sesión e ingresar a la página web.
                             <br/>
-                            Frase xd
-                            <br/>
-                            <br/>
-
-                            Conclusión de la respuesta
                         </p>
                         <hr className="separador"/>
-                        <h3 className="welcome1 fw-bold">Pregunta</h3>
+                        <h3 className="welcome1 fw-bold">¿Qué beneficios tiene utilizar PayPhone?</h3>
                         <p className="w-75 mx-auto">
-                            Descripción
                             <br/>
+                            PayPhone mejora el tiempo de espera en filas dentro de supermercados de cadena y diferentes establecimientos que deseen utilizar este servicio. Reclamas los productos en el establecimiento seleccionado de manera eficiente, ahorrando este tiempo muerto en fila. Con la ventaja de elegir los productos que quieres comprar en el supermercado.
+                            Además utiliza una facturación electrónica teniendo una reducción en el uso del papel, lo cual contribuye al medio ambiente.
                             <br/>
-                            Frase xd
-                            <br/>
-                            <br/>
-
-                            Conclusión de la respuesta
                         </p>
                         <hr className="separador"/>
-                        <h3 className="welcome1 fw-bold">Pregunta</h3>
+                        <h3 className="welcome1 fw-bold">¿Cómo realizo una compra del producto?</h3>
                         <p className="w-75 mx-auto">
-                            Descripción
+                            Una vez inicia sesión  se elige el supermercado donde se desea recoger el producto, y se pasa a la página principal donde podras ver todos los productos del supermercado, agregas los productos que deseas comprar al carrito y proceder a realizar el pago, una vez aceptado el pago se generará una factura electrónica con la que recogerás los productos en el supermercado.
                             <br/>
-                            <br/>
-                            Frase xd
-                            <br/>
-                            <br/>
-
-                            Conclusión de la respuesta
                         </p>
                         <hr className="separador"/>
-                        <h3 className="welcome1 fw-bold">Pregunta</h3>
+                        <h3 className="welcome1 fw-bold">¿Qué medios de pago recibe PayPhone?</h3>
                         <p className="w-75 mx-auto">
-                            Descripción
+                            Se pueden realizar el pago por medio de PayPal y con tarjeta de credito y debito.
                             <br/>
-                            <br/>
-                            Frase xd
-                            <br/>
-                            <br/>
-
-                            Conclusión de la respuesta
                         </p>
                         <hr className="separador"/>
-                        <h3 className="welcome1 fw-bold">Pregunta</h3>
+                        <h3 className="welcome1 fw-bold">¿Cómo recojo los productos comprados?</h3>
                         <p className="w-75 mx-auto">
-                            Descripción
+                            Al realizar la compra obtendremos la factura electrónica donde se podrán ver los productos comprados, el supermercado se encargará de revisar esta factura.
+                            Vas al supermercado escoge los productos comprados anteriormente, te diriges a la salida y muestras la factura al vigilante
                             <br/>
-                            <br/>
-                            Frase xd
-                            <br/>
-                            <br/>
-
-                            Conclusión de la respuesta
                         </p>
                         <hr className="separador"/>
-                        <h3 className="welcome1 fw-bold">Pregunta</h3>
+                        <h3 className="welcome1 fw-bold">¿Dónde recojo los productos comprados?</h3>
                         <p className="w-75 mx-auto">
-                            Descripción
+                            En el supermercado que seleccionaste a la hora de seleccionar la tienda para comprar, en el cual aparece la dirección, y recoges los productos, de manera que no realices fila, solo tomas tus productos y sales.
                             <br/>
-                            <br/>
-                            Frase xd
-                            <br/>
-                            <br/>
-
-                            Conclusión de la respuesta
                         </p>
                         <hr className="separador"/>
-                        <h3 className="welcome1 fw-bold">Pregunta</h3>
+                        <h3 className="welcome1 fw-bold">¿Cómo agrego mi supermercado a PayPhone?</h3>
                         <p className="w-75 mx-auto">
-                            Descripción
+                            Sencillo, solo necesitas seleccionar la pestaña de registrarse como admin, y luego nosotros te aceptamos para que puedas ser un nuevo supermercado dentro de la aplicación.
                             <br/>
-                            <br/>
-                            Frase xd
-                            <br/>
-                            <br/>
-
-                            Conclusión de la respuesta
                         </p>
                         <hr className="separador"/>
-                        <h3 className="welcome1 fw-bold">Pregunta</h3>
+                        <h3 className="welcome1 fw-bold">¿Cuanto se demoran en aceptar mi supermercado?</h3>
                         <p className="w-75 mx-auto">
-                            Descripción
+                            Todo depende de lo saturado que se encuentre el sistema de aceptar supermercado en ese momento, pero normalmente nuestra aplicación acepta supermercado en un periodo de tiempo de 1 a 2 meses.
                             <br/>
-                            <br/>
-                            Frase xd
-                            <br/>
-                            <br/>
-
-                            Conclusión de la respuesta
                         </p>
                         <hr className="separador"/>
-                        <h3 className="welcome1 fw-bold">Pregunta</h3>
+                        <h3 className="welcome1 fw-bold">¿Qué hago si quiero devolver un producto?</h3>
                         <p className="w-75 mx-auto">
-                            Descripción
+                            Todo lo que tenga que ver con la devolución del producto, va directamente relacionado con el supermercado, Payphone no se hace responsable de las devoluciones del producto ya que solo somos un intermediario.
                             <br/>
-                            <br/>
-                            Frase xd
-                            <br/>
-                            <br/>
-
-                            Conclusión de la respuesta
                         </p>
                         <hr className="separador"/>
                     </div>
