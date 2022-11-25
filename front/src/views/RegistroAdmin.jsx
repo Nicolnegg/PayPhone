@@ -22,19 +22,10 @@ const RegistroAdmin = () => {
 
     const [inputs, setInputs] = useState({
         usuario_id: '',
-        oneliner : '',
-        websiteUrl : '',
-        facebookUrl : '',
-        instagramUrl : '',
-        twitterUrl : '',
-        linkedinUrl : '',
-        adminDescription: '',
-        country: '',
-        city: '',
-        postalCode: '',
-        address: '',
-        adminRating: 0,
-        phoneNumber: ''
+        nit : '',
+        nombre : '',
+        logo : '',
+        rut : ''
       });
 
       const changeForm = e => {
@@ -66,20 +57,11 @@ const RegistroAdmin = () => {
     const resetForm = () => {
 
         setInputs({
-            UserId: localStorage.getItem('ID'),
-            oneliner : '',
-            websiteUrl : '',
-            facebookUrl : '',
-            instagramUrl : '',
-            twitterUrl : '',
-            linkedinUrl : '',
-            adminDescription: '',
-            country: '',
-            city: '',
-            postalCode: '',
-            address: '',
-            adminRating: 0,
-            phoneNumber: ''
+            usuario_id: '',
+            nit : '',
+            nombre : '',
+            logo : '',
+            rut : ''
         });
       };
 
@@ -92,8 +74,8 @@ const RegistroAdmin = () => {
                         <h5 className="welcome mb-3 fw-bold">¡Hola, admin!</h5>
                         <div className="row">
                             <div className="col-3 my-auto">
-                                <p className="h5 mb-3 fw-bold text-gb">Ubicación</p>
-                                <p>Registra los datos de tu residencia:</p>
+                                <p className="h5 mb-3 fw-bold text-gb">Supermercado!</p>
+                                <p>Registra los datos de tu empresa:</p>
                             </div>
                             <div className="col">
                                 <div className="row">
@@ -102,49 +84,60 @@ const RegistroAdmin = () => {
                                             <input
                                                 type="text"
                                                 className="form-control mb-3"
-                                                id="country"
-                                                name="country"
-                                                placeholder="pais"
-                                                defaultValue={inputs.country}
+                                                id="usuario_id"
+                                                name="usuario_id"
+                                                placeholder="ID de la empresa"
+                                                defaultValue={inputs.usuario_id}
                                             />
-                                            <label htmlFor="pais">País</label>
+                                            <label htmlFor="pais">ID de la empresa</label>
                                         </div>
                                         <div className="form-floating mx-4 mt-2">
                                             <input
                                                 type="text"
                                                 className="form-control mb-3"
-                                                id="city"
-                                                name="city"
-                                                placeholder="ciudad"
-                                                defaultValue={inputs.city}
+                                                id="nit"
+                                                name="nit"
+                                                placeholder="nit"
+                                                defaultValue={inputs.nit}
                                             />
-                                            <label htmlFor="ciudad">Ciudad</label>
+                                            <label htmlFor="ciudad">NIT</label>
                                         </div>
-                                        <div className="form-floating flex-grow-1 mx-4 mt-2">
-                                            <input
-                                                type="number"
-                                                className="form-control mb-3"
-                                                id="postalCode"
-                                                name="postalCode"
-                                                placeholder="postal"
-                                                defaultValue={inputs.postalCode}
-                                            />
-                                            <label htmlFor="postal">Código Postal</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col">
-                                        <div className="form-floating mx-4 mt-1">
+                                        <div className="form-floating mx-4 mt-2">
                                             <input
                                                 type="text"
                                                 className="form-control mb-3"
-                                                id="address"
-                                                name="address"
-                                                placeholder="dir"
-                                                defaultValue={inputs.address}
+                                                id="nombre"
+                                                name="nombre"
+                                                placeholder="nombre"
+                                                defaultValue={inputs.nombre}
                                             />
-                                            <label htmlFor="dir">Dirección</label>
+                                            <label htmlFor="postal">Nombre de la empresa</label>
+                                        </div>
+                                    <div className="row">
+                                        <div className="col">
+                                            <div className="form-floating mx-4 mt-1">
+                                                <input
+                                                    type="text"
+                                                    className="form-control mb-3"
+                                                    id="rut"
+                                                    name="rut"
+                                                    placeholder="rut"
+                                                    defaultValue={inputs.rut}
+                                                />
+                                                <label htmlFor="postal">RUT</label>
+                                            </div>
+                                            <div className="form-floating mx-4 mt-1">
+                                                <input
+                                                    type="url"
+                                                    className="form-control mb-3"
+                                                    id="logo"
+                                                    name="logo"
+                                                    placeholder="logo"
+                                                    defaultValue={inputs.logo}
+                                                />
+                                                <label htmlFor="postal">Logo</label>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
