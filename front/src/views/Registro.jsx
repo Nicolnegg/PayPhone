@@ -87,24 +87,31 @@ const Registro = () => {
             if (passwordVal !== repeatPasswordVal) {
                 localStorage.setItem('ERR',"Las contraseñas tienen que ser iguales. Por favor, intente de nuevo.")
                 refreshPage()
-            } else {
-                const { data: result } = await axios.post("/registro", inputs);
-                const {isOK } = result.isOK;
-    
+            } 
+            else {
+                if(inputs.isAdmin){
+                    const { data: result } = await axios.post("/registro-empresa", inputs);
+                    const {isOK } = result.isOK;
 
-                if (!result.isOK) {
-                    console.log('error')
-                    return error;
-                  }
-                else {
-                    if(inputs.isAdmin){
-                        console.log('admin')
-                        navigate("/registro-admin");
+                    if (!result.isOK) {
+                        console.log('error')
+                        return error;
                     }else{
-                        console.log('Noerror')
+                        navigate("/RegistroAdmin");
+                    }
+                }
+                else{
+                    const { data: result } = await axios.post("/registro", inputs);
+                    const {isOK } = result.isOK;
+
+                    if (!result.isOK) {
+                        console.log('error')
+                        return error;
+                    }else{
                         navigate("/login");
                     }
                 }
+                
             }
         }
     }
