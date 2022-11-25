@@ -11,6 +11,7 @@ import * as establecimientoAdmin from "../controllers/EstablecimientoController.
 import * as AdminLogin_Est from "../controllers/AdminRegistroEstable.js";
 import * as factura from "../controllers/Factura_electronica.js";
 import * as adminProductos from "../controllers/Est_Productos.js";
+import * as recomend from "../controllers/RecomendadosP.js"
 
 const router = express.Router();
 
@@ -48,5 +49,6 @@ router.post("/Admin-empresa", AdminLogin_Est.crearCuenta_empresa)
 router.post("/Admin-establecimiento", AdminLogin_Est.crear_establecimiento)
 router.get("/factura-electronica", factura.generafactura_pdf)
 router.post("/crear-PA", adminProductos.agregarPA)
+router.get("/recomendados", recomend.top_productos)
 
 export default router;
