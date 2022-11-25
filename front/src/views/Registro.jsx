@@ -97,7 +97,7 @@ const Registro = () => {
                         console.log('error')
                         return error;
                     }else{
-                        navigate("/RegistroAdmin");
+                        navigate("/registro-admin");
                     }
                 }
                 else{
