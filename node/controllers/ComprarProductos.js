@@ -2,17 +2,17 @@ import connection from "../database/db.js";
 
 export async function compraProductos(req, res) {
     const usuario_id = req.body.usuario_id;
-    var total = 0;
+    const fecha = req.body.fecha;
+    const total = req.body.total;
 
-    connection.query('SELECT P.nombre, P.precio_venta, C.cantidad FROM carrito C, producto P WHERE C.usuario_id = ? AND P.producto_id = C.producto_id', [usuario_id], async (error, results) => {
+    connection.query('INSERT INTO factura SET ?', { usuario_id: usuario_id, fecha: fecha, total: total},
+    async (error, results) => {
+
         if(results){
-            for(var j = 0; j < Object.keys(results).length; j++) {
-                total += results[j].precio_venta*results[j].cantidadP;
-            }
-            res.json(total);
+            res.json({ isOK: true, msj: "insertada factura a bases de datos" });
         }
         else{
-            res.json(total);
+            res.json({ isOK: false, msj: "No se pudo insertar factura" });
         }
         
     })

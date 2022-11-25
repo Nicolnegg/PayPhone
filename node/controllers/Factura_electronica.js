@@ -41,6 +41,9 @@ export async function generafactura_pdf(req, res){
 
         contenidoHtml = contenidoHtml.replace("{{total}}", formateador.format(total));
 
+        //eliminatos los datos pagados del carro
+        
+
         pdf.create(contenidoHtml).toStream((error, stream) => {
             if (error) {
                 res.end("Error creando PDF: " + error)
