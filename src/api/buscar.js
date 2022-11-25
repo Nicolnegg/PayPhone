@@ -1,5 +1,5 @@
 export function buscarCategoria(){
-    const url = '/categories';
+    const url = 'http://localhost:8000/categories';
       const params = {
           method: "GET",
           headers: {
@@ -16,7 +16,7 @@ export function buscarCategoria(){
   }
 
   export function buscarAdmin(){
-    const url = '/admin';
+    const url = 'http://localhost:8000/admin';
       const params = {
           method: "GET",
           headers: {
@@ -33,7 +33,7 @@ export function buscarCategoria(){
   }
 
   export function buscarAnuncios(){
-    const url = '/post/getAll';
+    const url = 'http://localhost:8000/post/getAll';
       const params = {
           method: "GET",
           headers: {
@@ -50,7 +50,7 @@ export function buscarCategoria(){
   }
 
     export function infoAnuncio(id){
-        const url = '/post/' + id;
+        const url = 'http://localhost:8000/post/' + id;
         const params = {
             method: "POST",
             headers: {
@@ -68,7 +68,7 @@ export function buscarCategoria(){
 
 
     export function perfilAdmin(id){
-        const url = '/admin/profile/' + id;
+        const url = 'http://localhost:8000/admin/profile/' + id;
         const params = {
             method: "GET",
             headers: {
@@ -86,7 +86,7 @@ export function buscarCategoria(){
 
 
   export function buscarAnunciosPorCategoria(id){
-    const url = '/categories/' + id;
+    const url = 'http://localhost:8000/categories/' + id;
       const params = {
           method: "GET",
           headers: {
@@ -103,7 +103,7 @@ export function buscarCategoria(){
   }
 
   export function buscarAnunciosPorPalabra(palabra){
-    const url = '/search?keyword=' + palabra;
+    const url = 'http://localhost:8000/search?keyword=' + palabra;
       const params = {
           method: "GET",
           headers: {
@@ -120,7 +120,7 @@ export function buscarCategoria(){
   }
 
   export function buscarAdminPorPalabra(palabra){
-    const url = '/searchAdmin?keyword=' + palabra;
+    const url = 'http://localhost:8000/searchAdmin?keyword=' + palabra;
       const params = {
           method: "GET",
           headers: {
@@ -137,7 +137,7 @@ export function buscarCategoria(){
   }
 
   export function buscarRecomendaciones(){
-    const url = '/recommendations';
+    const url = 'http://localhost:8000/recommendations';
       const params = {
           method: "GET",
           headers: {
