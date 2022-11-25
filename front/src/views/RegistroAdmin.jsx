@@ -21,7 +21,7 @@ const RegistroAdmin = () => {
     }
 
     const [inputs, setInputs] = useState({
-        UserId: localStorage.getItem('ID'),
+        usuario_id: '',
         oneliner : '',
         websiteUrl : '',
         facebookUrl : '',
@@ -83,11 +83,8 @@ const RegistroAdmin = () => {
         });
       };
 
-    if (!id || id === "null"){
-        window.location.href = "/registro"
-    }
-    else {
-        return (
+    
+    return (
             <div className="reg text-center d-flex" style={style} onSubmit={registrar} onChange={changeForm}>
                 <div className="form-signin rounded max-w-regfree my-auto">
                     <form>
@@ -302,6 +299,5 @@ const RegistroAdmin = () => {
             </div>
         )
     }
-}
 
 export default RegistroAdmin
