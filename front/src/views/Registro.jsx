@@ -89,15 +89,19 @@ const Registro = () => {
                 refreshPage()
             } else {
                 const { data: result } = await axios.post("/registro", inputs);
-                const { msj: msg, data } = result;
+                const {isOK } = result.isOK;
+    
 
-                if (!data) {
-                    return setError(msg);
+                if (!result.isOK) {
+                    console.log('error')
+                    return error;
                   }
                 else {
                     if(inputs.isAdmin){
+                        console.log('admin')
                         navigate("/registro-admin");
                     }else{
+                        console.log('Noerror')
                         navigate("/login");
                     }
                 }
