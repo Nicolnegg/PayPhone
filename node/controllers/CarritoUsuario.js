@@ -1,16 +1,16 @@
 import connection from "../database/db.js";
 
 export async function getCarrito(req, res) {
-  const usuario_id = req.body.usuario_id;
+  const usuario_id = req.params.userId;
   var total = 0;
 
   connection.query(
-    "SELECT P.nombre, P.precio_venta, C.cantidad FROM carrito C, producto P WHERE C.usuario_id = ? AND P.producto_id = C.producto_id",
+    "SELECT P.nombre, P.precio_venta, P.imagen, C.cantidad FROM carrito C, producto P WHERE C.usuario_id = ? AND P.producto_id = C.producto_id",
     [usuario_id],
     async (error, results) => {
       if (results) {
         for (var j = 0; j < Object.keys(results).length; j++) {
-          total += results[j].precio_venta * results[j].cantidadP;
+          total += results[j].precio_venta * results[j].cantidad;
         }
         res.json({ results, total });
       } else {
