@@ -5,11 +5,16 @@ import Background from "../assets/images/fondo.png"
 import {showHide} from "../utils/passwordVisibility"
 import {registro} from "../api/user";
 import ModalError from "../components/ModalError";
+import { axios } from "../libs/axios";
+import { Link, useNavigate } from "react-router-dom";
+
 
 
 const Registro = () => {
+    const navigate = useNavigate();
 
     const error = localStorage.getItem("ERR");
+    const [setError] = useState(null);
 
     function refreshPage() {
         window.location.reload();
@@ -26,14 +31,13 @@ const Registro = () => {
     }
 
     const [inputs, setInputs] = useState({
-        username: "",
-        firstName: "",
-        lastName: "",
-        password: "",
-        repeatPassword: "",
-        email: "",
-        location: "",
-        avatarUrl: "",
+        cedula: "",
+        nombre: "",
+        apellido: "",
+        contrasenia: "",
+        confirmacionClave: "",
+        correo: "",
+        fecha_nacimiento: "",
         isAdmin: false
       });
 
@@ -72,9 +76,9 @@ const Registro = () => {
 
     const register = async e => {
         e.preventDefault();
-        const emailVal = inputs.email;
-        const passwordVal = inputs.password;
-        const repeatPasswordVal = inputs.repeatPassword;
+        const emailVal = inputs.correo;
+        const passwordVal = inputs.contrasenia;
+        const repeatPasswordVal = inputs.confirmacionClave;
 
         if (!emailVal || !passwordVal || !repeatPasswordVal) {
             localStorage.setItem('ERR',"Todos los campos son obligatorios.")
@@ -84,18 +88,17 @@ const Registro = () => {
                 localStorage.setItem('ERR',"Las contraseñas tienen que ser iguales. Por favor, intente de nuevo.")
                 refreshPage()
             } else {
-                const result = await registro(inputs);
-                console.log(result)
-                if (!result.ok) {
-                    localStorage.setItem('ERR',result.message)
-                    refreshPage()
-                } else {
-                    if(result.free){
-                        resetForm();
-                        window.location.href = "registro-admin";
+                const { data: result } = await axios.post("/registro", inputs);
+                const { msj: msg, data } = result;
+
+                if (!data) {
+                    return setError(msg);
+                  }
+                else {
+                    if(inputs.isAdmin){
+                        navigate("/registro-admin");
                     }else{
-                        resetForm();
-                        window.location.href = "login";
+                        navigate("/login");
                     }
                 }
             }
@@ -112,14 +115,13 @@ const Registro = () => {
         }
 
         setInputs({
-            username: "",
-            firstName: "",
-            lastName: "",
-            password: "",
-            repeatPassword: "",
-            email: "",
-            location: "",
-            avatarUrl: "",
+            cedula: "",
+            nombre: "",
+            apellido: "",
+            contrasenia: "",
+            confirmacionClave: "",
+            correo: "",
+            fecha_nacimiento: "",
             isAdmin: false
         });
 
@@ -147,15 +149,32 @@ const Registro = () => {
                             </div>
                             <div className="form-floating flex-grow-1">
                                 <input
-                                        type="text"
+                                        type="number"
                                         className="form-control mb-3"
-                                        id="firstName"
-                                        name="firstName"
-                                        placeholder="firstName"
+                                        id="cedula"
+                                        name="cedula"
+                                        placeholder="cedula"
                                         onChange={inputValidation}
                                         value = {inputs.firstName}
                                 />
-                                <label htmlFor="firstName">Nombres</label>
+                                <label htmlFor="cedula">Cedula</label>
+                            </div>
+                        </div>
+                        <div className="input-group w-75 mx-auto mt-2">
+                            <div>
+                                <span className="input-group-text bg-gb text-white"><i className="bi bi-person-circle my-1"> </i></span>
+                            </div>
+                            <div className="form-floating flex-grow-1">
+                                <input
+                                        type="text"
+                                        className="form-control mb-3"
+                                        id="nombre"
+                                        name="nombre"
+                                        placeholder="nombre"
+                                        onChange={inputValidation}
+                                        value = {inputs.firstName}
+                                />
+                                <label htmlFor="nombre">Nombres</label>
                             </div>
                         </div>
                         <div className="input-group w-75 mx-auto mt-2">
@@ -166,13 +185,13 @@ const Registro = () => {
                                 <input
                                     type="text"
                                     className="form-control mb-3"
-                                    id="lastName"
-                                    name="lastName"
-                                    placeholder="lastName"
+                                    id="apellido"
+                                    name="apellido"
+                                    placeholder="apellido"
                                     onChange={inputValidation}
                                     value = {inputs.lastName}
                                 />
-                                <label htmlFor="lastName">Apellidos</label>
+                                <label htmlFor="apellido">Apellidos</label>
                             </div>
                         </div>
                         <div className="input-group w-75 mx-auto mt-2">
@@ -183,13 +202,13 @@ const Registro = () => {
                                 <input
                                         type="email"
                                         className="form-control mb-3"
-                                        id="email"
-                                        name="email"
-                                        placeholder="username"
+                                        id="correo"
+                                        name="correo"
+                                        placeholder="correo"
                                         onChange={inputValidation}
                                         value = {inputs.email}
                                 />
-                                <label htmlFor="email">Correo electrónico</label>
+                                <label htmlFor="correo">Correo electrónico</label>
                             </div>
                         </div>
                     </div>
@@ -202,13 +221,13 @@ const Registro = () => {
                                 <input
                                         type="password"
                                         className="form-control mb-3"
-                                        id="password"
-                                        name="password"
-                                        placeholder="password"
+                                        id="contrasenia"
+                                        name="contrasenia"
+                                        placeholder="contrasenia"
                                         onChange={inputValidation}
                                         value = {inputs.password}
                                 />
-                                <label htmlFor="password">Contraseña nueva</label>
+                                <label htmlFor="password">Contraseña</label>
                                 <i className="bi bi-eye-slash-fill form-icon" onClick={((e) => showHide(e.target))}> </i>
                             </div>
                         </div>
@@ -220,14 +239,31 @@ const Registro = () => {
                                 <input
                                         type="password"
                                         className="form-control mb-3"
-                                        id="repeatPassword"
-                                        name="repeatPassword"
-                                        placeholder="repeatPassword"
+                                        id="confirmacionClave"
+                                        name="confirmacionClave"
+                                        placeholder="confirmacionClave"
                                         onChange={inputValidation}
                                         value = {inputs.repeatPassword}
                                 />
                                 <label htmlFor="repeatPassword">Confirma la contraseña</label>
                                 <i className="bi bi-eye-slash-fill form-icon" onClick={((e) => showHide(e.target))}> </i>
+                            </div>
+                        </div>
+                        <div className="input-group w-75 mx-auto mt-2">
+                            <div>
+                                <span className="input-group-text bg-gb text-white"><i className="bi bi-person-badge-fill my-1"> </i></span>
+                            </div>
+                            <div className="form-floating flex-grow-1">
+                                <input
+                                    type="date"
+                                    className="form-control mb-3"
+                                    id="fecha_nacimiento"
+                                    name="fecha_nacimiento"
+                                    placeholder="fecha_nacimiento"
+                                    onChange={inputValidation}
+                                    value = {inputs.lastName}
+                                />
+                                <label htmlFor="fecha_nacimiento">Fecha de nacimiento</label>
                             </div>
                         </div>
                         <div className="w-75 mx-auto mt-4 h5 fw-bold free">

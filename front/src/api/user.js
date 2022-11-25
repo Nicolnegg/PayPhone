@@ -1,8 +1,7 @@
 import { axios } from "../libs/axios";
 
 export function registro(data) {
-  data.username = data.email.substring(0, data.email.indexOf("@"));
-  const url = "http://localhost:8000/register";
+  const url = "http://localhost:8000/registro";
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -53,7 +52,7 @@ export function iniciar_sesion(data) {
 }
 
 export function registroAdmin(data) {
-  const url = "http://localhost:8000/register/admin";
+  const url = "http://localhost:8000/registro";
   const params = {
     method: "POST",
     body: JSON.stringify(data),
