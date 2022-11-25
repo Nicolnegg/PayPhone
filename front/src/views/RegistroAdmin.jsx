@@ -3,10 +3,13 @@ import { notification } from "antd";
 import Logo from "../assets/images/Logo.png"
 import Background from "../assets/images/fondo.png"
 import {registroAdmin} from "../api/user";
+import { axios } from "../libs/axios";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
 const RegistroAdmin = () => {
+    const navigate = useNavigate();
 
     const id = localStorage.getItem('ID');
 
@@ -38,15 +41,14 @@ const RegistroAdmin = () => {
      const registrar = async e => {
         e.preventDefault();
         
-        const result = await registroAdmin(inputs);
+        const { data: result } = await axios.post("/registro-empresa", inputs);
+        const {isOK } = result.isOK;
         console.log(result)
-        if (result.id) {
+        if (result.isOK) {
             notification["success"]({
                 message: "Registro correcto"
             });
-            resetForm();
-            localStorage.removeItem('ID')
-            window.location.href = "login";
+            navigate("/login");
         } else {
             notification["error"]({
             message: "Error en el registro"
