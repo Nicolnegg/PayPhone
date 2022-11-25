@@ -5,6 +5,8 @@ import bg from "../assets/images/fondo.png";
 import { agregarItem } from "../api/canasta";
 import { getAccessToken } from "../api/auth";
 import jwtDecode from "jwt-decode";
+import { Link } from "react-router-dom";
+
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(0);
@@ -39,26 +41,31 @@ export default function Products() {
           <input type="search" name="" id="" />
         </form>
         <div className="d-flex gap-2">
-          <div
-            className="position-relative p-2 rounded"
-            style={{ background: "#ff914d" }}
-          >
-            <i class="bi bi-cart text-white" aria-label="Carrito de compras" />
-            {count > 0 && (
-              <span
-                className="position-absolute d-flex justify-content-center align-items-center bg-white rounded-circle"
-                style={{
-                  top: "-.5rem",
-                  right: "-.5rem",
-                  fontSize: ".8rem",
-                  minWidth: "1.3rem",
-                  height: "1.3rem",
-                }}
-              >
-                {count}
-              </span>
-            )}
-          </div>
+          <Link to="../carrito">
+            <div
+              className="position-relative p-2 rounded"
+              style={{ background: "#ff914d" }}
+            >
+              <i
+                class="bi bi-cart text-white"
+                aria-label="Carrito de compras"
+              />
+              {count > 0 && (
+                <span
+                  className="position-absolute d-flex justify-content-center align-items-center bg-white rounded-circle"
+                  style={{
+                    top: "-.5rem",
+                    right: "-.5rem",
+                    fontSize: ".8rem",
+                    minWidth: "1.3rem",
+                    height: "1.3rem",
+                  }}
+                >
+                  {count}
+                </span>
+              )}
+            </div>
+          </Link>
           <button
             className="btn"
             aria-label="Limpiar carrito"
