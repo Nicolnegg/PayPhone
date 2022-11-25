@@ -1,5 +1,5 @@
 export function verOrdenes(id){
-    const url = 'http://localhost:8000/profile/' + id + '/orders';
+    const url = '/profile/' + id + '/orders';
     const params = {
         method: "GET",
         headers: {
@@ -16,7 +16,7 @@ export function verOrdenes(id){
 }
 
 export function relatedPosts(id){
-    const url = 'http://localhost:8000/post/' + id + '/related';
+    const url = '/post/' + id + '/related';
     const params = {
         method: "GET",
         headers: {

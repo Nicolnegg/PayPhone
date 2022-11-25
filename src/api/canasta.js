@@ -1,5 +1,5 @@
 export function traerItemsCanasta(id){
-    const url = 'http://localhost:8000/shopping/getCartItems/' + id;
+    const url = '/shopping/getCartItems/' + id;
       const params = {
           method: "GET",
           headers: {
@@ -16,7 +16,7 @@ export function traerItemsCanasta(id){
   }
 
   export function agregarItem(data) {
-    const url = 'http://localhost:8000/agrega-producto';
+    const url = '/agrega-producto';
     const params = {
       method: "POST",
       body: JSON.stringify(data),
@@ -35,7 +35,7 @@ export function traerItemsCanasta(id){
   }
 
   export function eliminarItem(id, postId) {
-    const url = 'http://localhost:8000/shopping/removeItem/' + id + '/' + postId;
+    const url = '/shopping/removeItem/' + id + '/' + postId;
     const params = {
       method: "POST",
       headers: {
@@ -53,7 +53,7 @@ export function traerItemsCanasta(id){
   }
 
   export function cambiarCantidad(data) {
-    const url = 'http://localhost:8000/shopping/changeQuantity';
+    const url = '/shopping/changeQuantity';
     const params = {
       method: "POST",
       body: JSON.stringify(data),
@@ -72,7 +72,7 @@ export function traerItemsCanasta(id){
   }
 
   export function traerSesion(id){
-    const url = 'http://localhost:8000/shopping/getSessionId/' + id;
+    const url = '/shopping/getSessionId/' + id;
       const params = {
           method: "GET",
           headers: {
@@ -89,7 +89,7 @@ export function traerItemsCanasta(id){
   }
 
   export function terminarCompra(id){
-    const url = 'http://localhost:8000/shopping/endShoppingSession/' + id;
+    const url = '/shopping/endShoppingSession/' + id;
       const params = {
           method: "GET",
           headers: {

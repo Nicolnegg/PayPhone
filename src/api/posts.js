@@ -1,6 +1,6 @@
 export function anuncia(data,id){
     data.adminId = id
-    const url = 'http://localhost:8000/post/create';
+    const url = '/post/create';
     const params = {
         method: "POST",
         body: JSON.stringify(data),
@@ -18,7 +18,7 @@ export function anuncia(data,id){
 }
 
 export function categorias(){
-    const url = 'http://localhost:8000/categories';
+    const url = '/categories';
     const params = {
         method: "GET",
         headers: {
