@@ -5,7 +5,7 @@ export async function getCarrito(req, res) {
   var total = 0;
 
   connection.query(
-    "SELECT P.nombre, P.precio_venta, P.imagen, C.cantidad FROM carrito C, producto P WHERE C.usuario_id = ? AND P.producto_id = C.producto_id",
+    "SELECT count(C.producto_id ) AS cantidad, P.nombre, P.precio_venta, P.imagen FROM carrito C, producto P WHERE C.usuario_id = ? AND P.producto_id = C.producto_id GROUP BY C.producto_id",
     [usuario_id],
     async (error, results) => {
       if (results) {
