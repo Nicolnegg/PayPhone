@@ -50,14 +50,6 @@ function Sidebar(props) {
               </span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="3">
-            <Link to="../eleccionSupermercado">
-              <span>
-                <i class="bi bi-arrow-right-circle-fill me-3"></i>
-                Elección de supermercado
-              </span>
-            </Link>
-          </Menu.Item>
         </>
       );
     else return null;
