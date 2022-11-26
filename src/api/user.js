@@ -35,6 +35,7 @@ export function registro(data) {
 export function iniciar_sesion(data) {
   const url = "https://payphonecol.herokuapp.com/login";
   const params = {
+    mode: "no-cors",
     method: "POST",
     body: JSON.stringify(data),
     headers: {
