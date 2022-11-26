@@ -1,5 +1,5 @@
 export function traerVentas(id) {
-    const url = 'http://localhost:8000/profile/' + id + '/sales';
+    const url = 'https://payphonecol.herokuapp.com/profile/' + id + '/sales';
     const params = {
       method: "GET",
       headers: {
@@ -17,7 +17,7 @@ export function traerVentas(id) {
   }
 
   export function traerMisAnuncios(id) {
-    const url = 'http://localhost:8000/admin/post/' + id ;
+    const url = 'https://payphonecol.herokuapp.com/admin/post/' + id ;
     const params = {
       method: "GET",
       headers: {
