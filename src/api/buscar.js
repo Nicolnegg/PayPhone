@@ -1,6 +1,7 @@
 export function buscarCategoria() {
   const url = "https://payphonecol.herokuapp.com/categories";
   const params = {
+    modo: "no-cors",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -19,6 +20,7 @@ export function buscarCategoria() {
 export function buscarAdmin() {
   const url = "https://payphonecol.herokuapp.com/admin";
   const params = {
+    modo: "no-cors",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
