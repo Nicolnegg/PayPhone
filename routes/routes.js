@@ -48,5 +48,6 @@ router.post("/Admin-empresa", AdminLogin_Est.crearCuenta_empresa)
 router.post("/Admin-establecimiento", AdminLogin_Est.crear_establecimiento)
 router.get("/factura-electronica", factura.generafactura_pdf)
 router.post("/crear-PA", adminProductos.agregarPA)
+router.get("/categories", productoUser.filtroProductos)
 
 export default router;
