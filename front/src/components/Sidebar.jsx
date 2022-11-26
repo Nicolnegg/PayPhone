@@ -112,7 +112,7 @@ function Sidebar(props) {
           </div>
 
           <Menu.Item key="1">
-            <Link to="../Productos">
+            <Link to="../productos">
               <span>Éxito</span>
             </Link>
           </Menu.Item>
