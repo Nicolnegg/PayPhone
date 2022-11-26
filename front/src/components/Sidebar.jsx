@@ -44,7 +44,7 @@ function Sidebar(props) {
           </Menu.Item>
           </div>
           <Menu.Item key="2">
-            <Link to="./adminn/misVentas">
+            <Link to="/adminn/misVentas">
               <span>
                 <i className="bi bi-cash-coin me-3"> </i>
                 Mis ventas
