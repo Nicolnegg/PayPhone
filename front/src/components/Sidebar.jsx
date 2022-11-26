@@ -91,7 +91,7 @@ function Sidebar(props) {
           </Menu.Item>
         </Menu>
       );
-    else
+    if (rol === "/usuario")
       return (
         <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKeys]}>
           <div className="top mt-3">
