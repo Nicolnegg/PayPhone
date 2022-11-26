@@ -28,7 +28,7 @@ const Login = () => {
     console.warn(result)
     if(result.name){
       localStorage.setItem('user', JSON.stringify(result));
-      navigate("./") 
+      navigate("./eleccionSupermercado") 
       alert("Datos leidos correctamente")
     }else{
       alert("Datos leidos correctamente")
