@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import cors from 'cors'
+//import cors from 'cors'
 import db from "./database/db.js"
 import router from "./routes/routes.js";
 import session from "express-session";
@@ -12,6 +12,7 @@ import GoogleStrategy from "passport-google-oauth20";
 import appRoutes from './routes/routes.js';
 
 const app= express();
+const cors = require('cors');
 
 app.use(express.urlencoded({extended:false}));
 app.use( cors() );
