@@ -62,14 +62,13 @@ export async function crear_establecimiento(req,res){
         const usuario_id =req.body.usuario_id;
         const nit = req.body.nit;
         const nombre = req.body.nombre;
-        const logo = req.body.logo;
         const rut = req.body.rut;
 
             connection.query('SELECT * FROM establecimiento WHERE nit = ? ', [nit], async (error, results) => {
                 //revisar que el nit no este usado ya
                 if (results[0] == null) {
                     //insertar valores
-                    connection.query('INSERT INTO establecimiento SET ?', { nit: nit, administrador_codigo: 1234, nombre: nombre, logo: logo, rut: rut},
+                    connection.query('INSERT INTO establecimiento SET ?', { nit: nit, administrador_codigo: 1234, nombre: nombre, rut: rut},
                         async (error, results) => {
 
 

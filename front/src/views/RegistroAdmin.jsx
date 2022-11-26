@@ -5,6 +5,8 @@ import Background from "../assets/images/fondo.png"
 import {registroAdmin} from "../api/user";
 import { axios } from "../libs/axios";
 import { Link, useNavigate } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+import { getAccessToken } from "../api/auth";
 
 
 
@@ -24,10 +26,9 @@ const RegistroAdmin = () => {
     }
 
     const [inputs, setInputs] = useState({
-        usuario_id: '',
+        usuario_id: jwtDecode(getAccessToken()).id,
         nit : '',
         nombre : '',
-        logo : '',
         rut : ''
       });
 
@@ -40,15 +41,16 @@ const RegistroAdmin = () => {
 
      const registrar = async e => {
         e.preventDefault();
+         console.log(inputs)
         
-        const { data: result } = await axios.post("/registro-empresa", inputs);
+        const { data: result } = await axios.post("/registro-establecimiento", inputs);
         const {isOK } = result.isOK;
         console.log(result)
         if (result.isOK) {
             notification["success"]({
                 message: "Registro correcto"
             });
-            navigate("/login");
+            navigate("/adminn");
         } else {
             notification["error"]({
             message: "Error en el registro"
@@ -59,10 +61,9 @@ const RegistroAdmin = () => {
     const resetForm = () => {
 
         setInputs({
-            usuario_id: '',
+            usuario_id: jwtDecode(getAccessToken()).id,
             nit : '',
             nombre : '',
-            logo : '',
             rut : ''
         });
       };
