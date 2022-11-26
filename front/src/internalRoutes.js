@@ -48,6 +48,7 @@ const routesSidebar = [
     {
         path: 'misVentas',
         component: MisVentas,
+        layout: Adminn
     },
     {
         path: 'productos',
