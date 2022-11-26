@@ -5,10 +5,10 @@ import Ordenes from "./views/Ordenes"
 import Perfil from "./views/Perfil"
 import Recomendaciones from "./views/Recomendaciones"
 import ExtraInfo from "./views/ExtraInfo"
-import Ventas from "./views/Ventas"
 import Productos from './views/Productos'
 import EleccionSupermercado from "./views/EleccionSupermercado"
 import RegistroAdmin from "./views/RegistroAdmin";
+import MisVentas from "./views/MisVentas";
 import Usuario from "./layouts/Usuario";
 import Adminn from "./layouts/Adminn";
 
@@ -47,7 +47,7 @@ const routesSidebar = [
     },
     {
         path: 'misVentas',
-        component: Ventas,
+        component: MisVentas,
     },
     {
         path: 'productos',

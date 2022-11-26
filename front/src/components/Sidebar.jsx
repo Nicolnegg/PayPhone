@@ -4,6 +4,7 @@ import { Layout, Menu } from "antd";
 import { logout } from "../api/auth";
 import MenuBackground from "../assets/images/menu-lat.png";
 import Logo from "../assets/images/Logo.png";
+import Pay from "../assets/images/Icono_web.png";
 import exito from "../assets/images/exito.png";
 
 function Sidebar(props) {
@@ -36,7 +37,7 @@ function Sidebar(props) {
             <Link to={rol}>
               <img
                 className="logo d-flex justify-content-center"
-                src={exito}
+                src={Pay}
                 alt="Exito"
               />
             </Link>
