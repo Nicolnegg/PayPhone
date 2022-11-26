@@ -12,7 +12,7 @@ const routesUsuario = [
 const routesAdminn = [
     
     {
-        path: "/admin",
+        path: "/adminn",
         layout: Adminn,
     }
 ]
