@@ -52,7 +52,7 @@ function Login() {
     checkSession();
 
     if (free.isAdmin) {
-      navigate("/admin");
+      navigate("/adminn");
     } else {
       navigate("/usuario/eleccionSupermercado");
     }

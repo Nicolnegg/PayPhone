@@ -140,14 +140,6 @@ function Sidebar(props) {
               </span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="5">
-            <Link to="../ordenes">
-              <span>
-                <i className="bi bi-card-list me-3"> </i>
-                Mis órdenes
-              </span>
-            </Link>
-          </Menu.Item>
           <Menu.Item key="6">
             <Link to="../recomendaciones">
               <span>
