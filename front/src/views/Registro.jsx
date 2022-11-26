@@ -125,9 +125,9 @@ const Registro = () => {
                         checkSession();
 
                         if (free.isAdmin) {
-                            window.location.href = "./registro-admin";
+                            navigate("/adminn/registro-admin");
                         } else {
-                            window.location.href = "./buscarcategoria";
+                            navigate("/login");
                         }
                         console.log('perfecto')
                         

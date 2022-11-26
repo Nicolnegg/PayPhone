@@ -55,6 +55,10 @@ const routesSidebar = [
     {
         path: 'eleccionSupermercado',
         component: EleccionSupermercado
+    },
+    {
+        path: 'registro-admin',
+        component: RegistroAdmin,
     }
 ]
     
