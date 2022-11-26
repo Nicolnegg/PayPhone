@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { useNavigate} from 'react-router-dom'
 
-const URI = 'https://payphonecol.herokuapp.com/login'
+const URI = 'http://localhost:8000/login'
 
 const Login = () => {
   const [correo, setCorreo] = useState ('');
@@ -10,7 +10,7 @@ const Login = () => {
   useEffect ( () => {
     const auth = localStorage.getItem('user');
     if(auth) {
-      navigate('./eleccionSupermercado')
+      navigate('./')
     }
 
   },[])
@@ -28,7 +28,7 @@ const Login = () => {
     console.warn(result)
     if(result.name){
       localStorage.setItem('user', JSON.stringify(result));
-      navigate("./eleccionSupermercado") 
+      navigate("./") 
       alert("Datos leidos correctamente")
     }else{
       alert("Datos leidos correctamente")
