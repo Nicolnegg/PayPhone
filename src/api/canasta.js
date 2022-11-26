@@ -1,5 +1,5 @@
 export function traerItemsCanasta(id) {
-  const url = "http://localhost:8000/carrito/" + id;
+  const url = "https://payphonecol.herokuapp.com/carrito/" + id;
   const params = {
     method: "GET",
     headers: {
@@ -17,7 +17,7 @@ export function traerItemsCanasta(id) {
 }
 
 export function agregarItem(data) {
-  const url = "http://localhost:8000/agrega-producto";
+  const url = "https://payphonecol.herokuapp.com/agrega-producto";
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -36,7 +36,7 @@ export function agregarItem(data) {
 }
 
 export function eliminarItem(id, postId) {
-  const url = "http://localhost:8000/shopping/removeItem/" + id + "/" + postId;
+  const url = "https://payphonecol.herokuapp.com/shopping/removeItem/" + id + "/" + postId;
   const params = {
     method: "POST",
     headers: {
@@ -54,7 +54,7 @@ export function eliminarItem(id, postId) {
 }
 
 export function cambiarCantidad(data) {
-  const url = "http://localhost:8000/shopping/changeQuantity";
+  const url = "https://payphonecol.herokuapp.com/shopping/changeQuantity";
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -73,7 +73,7 @@ export function cambiarCantidad(data) {
 }
 
 export function traerSesion(id) {
-  const url = "http://localhost:8000/shopping/getSessionId/" + id;
+  const url = "https://payphonecol.herokuapp.com/shopping/getSessionId/" + id;
   const params = {
     method: "GET",
     headers: {
@@ -91,7 +91,7 @@ export function traerSesion(id) {
 }
 
 export function terminarCompra(id) {
-  const url = "http://localhost:8000/factura-electronica/" + id;
+  const url = "https://payphonecol.herokuapp.com/factura-electronica/" + id;
   const params = {
     method: "GET",
     responseType: "blob",
