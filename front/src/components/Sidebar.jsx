@@ -38,7 +38,7 @@ function Sidebar(props) {
               <img
                 className="logo d-flex justify-content-center"
                 src={Pay}
-                alt="Exito"
+                alt="Payphone"
               />
             </Link>
           </Menu.Item>
@@ -62,7 +62,7 @@ function Sidebar(props) {
         <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKeys]}>
           {anuncio(rol)}
         </Menu>
-      )
+      );
     if (rol === "/")
       return (
         <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKeys]}>
