@@ -27,7 +27,7 @@ export function registro(data){
 }
 
 export function iniciar_sesion(data) {
-  const url = '/login';
+  const url = 'https://payphonecol.herokuapp.com/login';
   const params = {
     method: "POST",
     body: JSON.stringify(data),
