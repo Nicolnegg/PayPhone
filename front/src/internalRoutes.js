@@ -8,6 +8,8 @@ import ExtraInfo from "./views/ExtraInfo"
 import Ventas from "./views/Ventas"
 import Productos from './views/Productos'
 import EleccionSupermercado from "./views/EleccionSupermercado"
+import RegistroAdmin from "./views/RegistroAdmin";
+import Usuario from "./layouts/Usuario";
 
 const routesSidebar = [
     {
@@ -54,7 +56,6 @@ const routesSidebar = [
         path: 'eleccionSupermercado',
         component: EleccionSupermercado
     }
-
 ]
     
 

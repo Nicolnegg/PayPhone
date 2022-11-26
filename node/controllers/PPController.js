@@ -69,28 +69,31 @@ export async function verificarUsuario(req, res) {
                     res.json({ isOK: false, msj: "Usuario o contraseña incorrecta" })
                 }else{
                     //campos de login
-                    connection.query('SELECT activo FROM administrador WHERE usuario_id =', [results[0].usuario_id], async (error, resp) => {
+                    console.log(results[0].usuario_id)
+
+                    connection.query('SELECT activo FROM administrador WHERE usuario_id = ?', [results[0].usuario_id], async (error, resp) => {
                         if(resp != null){
                             esAdmin = resp[0]
+                            console.log('admin')
                         }
-                    })
-                    req.session['passport'] = { user: '' }
-                    req.session['productos'] = { total: 0 }
-                    req.session.passport.user = results[0]
-                    
-                    // create token
-                    const token = jwt.sign(
-                        {
-                        name: req.session.passport.user.nombre,
-                        id: req.session.passport.user.usuario_id,
-                        isAdmin: esAdmin
-                        }, 
-                    'secret_key')
+                        req.session['passport'] = { user: '' }
+                        req.session['productos'] = { total: 0 }
+                        req.session.passport.user = results[0]
+                        // create token
+                        const token = jwt.sign(
+                            {
+                                name: req.session.passport.user.nombre,
+                                id: req.session.passport.user.usuario_id,
+                                isAdmin: esAdmin
+                            },
+                            'secret_key')
 
-                    res.header('auth-token', token).json({
-                        error: null,
-                        data: { token }
+                        res.header('auth-token', token).json({
+                            error: null,
+                            data: { token }
+                        })
                     })
+                    
                     
                     
                 }

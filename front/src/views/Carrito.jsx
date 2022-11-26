@@ -8,7 +8,7 @@ import jwtDecode from "jwt-decode";
 import { getAccessToken } from "../api/auth";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import ModalApproved from "../components/ModalApproved";
-import { Document, Page } from "react-pdf";
+//import { Document, Page } from "react-pdf";
 
 const Carrito = () => {
   const estado = useParams();

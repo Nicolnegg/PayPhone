@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 const RegistroAdmin = () => {
     const navigate = useNavigate();
 
-    const id = localStorage.getItem('ID');
+    
 
     const style = {
         backgroundImage: `url(${Background})`,

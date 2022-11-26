@@ -4,14 +4,19 @@ import Logo from "../assets/images/Logo.png"
 import Background from "../assets/images/fondo.png"
 import {showHide} from "../utils/passwordVisibility"
 import {registro} from "../api/user";
+import jwtDecode from "jwt-decode";
+import jwtEncode from "jwt-encode";
 import ModalError from "../components/ModalError";
 import { axios } from "../libs/axios";
 import { Link, useNavigate } from "react-router-dom";
+import { TOKEN } from "../utils/tokens";
+import useAuth from "../hooks/useAuth";
 
 
 
 const Registro = () => {
     const navigate = useNavigate();
+    const { checkSession } = useAuth();
 
     const error = localStorage.getItem("ERR");
     const [setError] = useState(null);
@@ -97,7 +102,35 @@ const Registro = () => {
                         console.log('error')
                         return error;
                     }else{
-                        navigate("/registro-admin");
+                        
+                        const inputs2 = {
+                            correo: inputs.correo,
+                            contrasenia: inputs.contrasenia,
+                        };
+                        console.log('todo')
+                        console.log(inputs2)
+                        const { data: res } = await axios.post("/login", inputs2);
+                        const { msj: msg, data } = res;
+                        console.log('si')
+                        if (!data) {
+                            return setError(msg);
+                        }
+                
+                        const free = jwtDecode(data.token);
+                        free.isAdmin = 1;
+                        console.log(free)
+                        const tokenA = jwtEncode(free,'secret');
+                        console.log(tokenA)
+                        localStorage.setItem(TOKEN,tokenA);
+                        checkSession();
+
+                        if (free.isAdmin) {
+                            window.location.href = "./registro-admin";
+                        } else {
+                            window.location.href = "./buscarcategoria";
+                        }
+                        console.log('perfecto')
+                        
                     }
                 }
                 else{

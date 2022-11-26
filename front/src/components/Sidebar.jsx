@@ -126,7 +126,7 @@ function Sidebar(props) {
             </Link>
           </Menu.Item>
           <Menu.Item key="3">
-            <Link to="../Usuario/productos">
+            <Link to="../productos">
               <span>
                 <i className="bi bi-patch-check-fill me-3"> </i>
                 Todos los productos
