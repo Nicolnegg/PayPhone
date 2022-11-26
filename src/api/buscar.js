@@ -1,4 +1,4 @@
-/*export function buscarCategoria() {
+export function buscarCategoria() {
   const url = "https://payphonecol.herokuapp.com/categories";
   const params = {
     method: "GET",
@@ -14,7 +14,7 @@
     .then((result) => {
       return result;
     });
-}*/
+}
 
 export function buscarAdmin() {
   const url = "https://payphonecol.herokuapp.com/admin";
