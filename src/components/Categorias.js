@@ -14,7 +14,7 @@ export const Categorias = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handleLogin = () => window.location.href = "./login";
+  const handleLogin = () => window.location.href = "./productos";
 
   useEffect(() => {
     buscarCategoria().then(response => {
