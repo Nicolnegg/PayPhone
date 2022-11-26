@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 
-const URI = 'http://localhost:8000/registro'
+const URI = 'https://payphonecol.herokuapp.com/registro'
 
 const SignUp = () => {
   const [cedula, setCedula] = useState('');
