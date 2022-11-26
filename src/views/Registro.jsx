@@ -4,6 +4,8 @@ import Logo from "../assets/images/Logo.png"
 import Background from "../assets/images/fondo.png"
 import {showHide} from "../utils/passwordVisibility"
 import {registro} from "../api/user";
+import jwtDecode from "jwt-decode";
+import jwtEncode from "jwt-encode";
 import ModalError from "../components/ModalError";
 import { axios } from "../libs/axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -108,15 +110,25 @@ const Registro = () => {
                         console.log('todo')
                         console.log(inputs2)
                         const { data: res } = await axios.post("/login", inputs2);
-                        console.log(res)
                         const { msj: msg, data } = res;
                         console.log('si')
                         if (!data) {
                             return setError(msg);
                         }
-                        localStorage.setItem(TOKEN, data.token);
-                        navigate("/registro-admin");
-                        //checkSession();
+                
+                        const free = jwtDecode(data.token);
+                        free.isAdmin = 1;
+                        console.log(free)
+                        const tokenA = jwtEncode(free,'secret');
+                        console.log(tokenA)
+                        localStorage.setItem(TOKEN,tokenA);
+                        checkSession();
+
+                        if (free.isAdmin) {
+                            navigate("/adminn/registro-admin");
+                        } else {
+                            navigate("/login");
+                        }
                         console.log('perfecto')
                         
                     }
