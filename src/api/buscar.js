@@ -1,5 +1,5 @@
 export function buscarCategoria() {
-  const url = "https://payphonecol.herokuapp.com/categories";
+  const url = "https://payphonecol.herokuapp.com/submenu";
   const params = {
     modo: "no-cors",
     method: "GET",
