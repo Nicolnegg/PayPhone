@@ -56,7 +56,7 @@ const Ventas = () => {
                                         <rect width="100%" height="100%" fill="#eee"></rect>
                                         <text x="50%" y="50%" fill="#aaa" dy=".3em">Imagen</text>
               </svg>*/}
-                                    <img src={`http://localhost:8000/images/${misAnuncios.thumbnailUrl}`} alt="Imagen" width="180" height="180"/>
+                                    <img src={`https://payphonecol.herokuapp.com/images/${misAnuncios.thumbnailUrl}`} alt="Imagen" width="180" height="180"/>
                                 </td>
                                 <td>
                                     {misAnuncios.postTitle}
@@ -103,7 +103,7 @@ const Ventas = () => {
                                         <rect width="100%" height="100%" fill="#eee"></rect>
                                         <text x="50%" y="50%" fill="#aaa" dy=".3em">Imagen</text>
                                     </svg>*/}
-                                    <img src={`http://localhost:8000/images/${ventas.thumbnailUrl}`} alt="Imagen" width="180" height="180"/>
+                                    <img src={`https://payphonecol.herokuapp.com/images/${ventas.thumbnailUrl}`} alt="Imagen" width="180" height="180"/>
                                 </td>
                                 <td>
                                     {ventas.postTitle}
