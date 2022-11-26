@@ -37,7 +37,7 @@ export function buscarAdmin() {
 }
 
 export function buscarAnuncios() {
-  const url = "https://payphonecol.herokuapp.com/getAll";
+  const url = "https://payphonecol.herokuapp.com/submenu";
   const params = {
     method: "GET",
     headers: {
