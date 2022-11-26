@@ -1,7 +1,7 @@
 import { axios } from "../libs/axios";
 
 export function registro(data) {
-  const url = "http://localhost:8000/registro";
+  const url = "https://payphonecol.herokuapp.com/registro";
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -20,7 +20,7 @@ export function registro(data) {
 }
 
 /*export function Google(){
-  const url = 'http://localhost:8000/';
+  const url = 'https://payphonecol.herokuapp.com/';
   const params = {
       headers: {
           "Content-Type": "application/json"
@@ -33,7 +33,7 @@ export function registro(data) {
 }*/
 
 export function iniciar_sesion(data) {
-  const url = "http://localhost:8000/login";
+  const url = "https://payphonecol.herokuapp.com/login";
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -52,7 +52,7 @@ export function iniciar_sesion(data) {
 }
 
 export function registroAdmin(data) {
-  const url = "http://localhost:8000/registro";
+  const url = "https://payphonecol.herokuapp.com/registro";
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -71,7 +71,7 @@ export function registroAdmin(data) {
 }
 
 export function miPerfil(id) {
-  const url = "http://localhost:8000/profile/" + id;
+  const url = "https://payphonecol.herokuapp.com/profile/" + id;
   const params = {
     method: "GET",
     headers: {
@@ -89,7 +89,7 @@ export function miPerfil(id) {
 }
 
 export function perfilAdmin(id) {
-  const url = "http://localhost:8000/admin/user/" + id;
+  const url = "https://payphonecol.herokuapp.com/admin/user/" + id;
   const params = {
     method: "GET",
     headers: {
@@ -107,7 +107,7 @@ export function perfilAdmin(id) {
 }
 
 export function editarPerfil(id, data) {
-  const url = "http://localhost:8000/user/" + id + "/update";
+  const url = "https://payphonecol.herokuapp.com/user/" + id + "/update";
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -126,7 +126,7 @@ export function editarPerfil(id, data) {
 }
 
 export function editarPerfilAdmin(id, data) {
-  const url = "http://localhost:8000/admin/" + id + "/update";
+  const url = "https://payphonecol.herokuapp.com/admin/" + id + "/update";
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -145,7 +145,7 @@ export function editarPerfilAdmin(id, data) {
 }
 
 export function eliminarUsuario(id) {
-  const url = "http://localhost:8000/user/" + id + "/delete";
+  const url = "https://payphonecol.herokuapp.com/user/" + id + "/delete";
   const params = {
     method: "POST",
     headers: {
