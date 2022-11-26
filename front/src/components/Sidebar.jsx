@@ -32,6 +32,7 @@ function Sidebar(props) {
       return (
         <>
           <div className="top mt-3">
+          <Menu.Item key="1">
             <Link to={rol}>
               <img
                 className="logo d-flex justify-content-center"
@@ -39,28 +40,13 @@ function Sidebar(props) {
                 alt="Exito"
               />
             </Link>
-          </div>
-          <Menu.Item key="6">
-            <Link to="../tarifa">
-              <span>
-                <i className="bi bi-megaphone-fill me-3"> </i>
-                Anunciarme
-              </span>
-            </Link>
           </Menu.Item>
-          <Menu.Item key="7">
+          </div>
+          <Menu.Item key="2">
             <Link to="../misVentas">
               <span>
                 <i className="bi bi-cash-coin me-3"> </i>
                 Mis ventas
-              </span>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="8">
-            <Link to="../eleccionSupermercado">
-              <span>
-                <i class="bi bi-arrow-right-circle-fill me-3"></i>
-                Elección de supermercado
               </span>
             </Link>
           </Menu.Item>

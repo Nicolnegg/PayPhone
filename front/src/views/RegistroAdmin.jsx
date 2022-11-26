@@ -128,17 +128,6 @@ const RegistroAdmin = () => {
                                                 />
                                                 <label htmlFor="postal">RUT</label>
                                             </div>
-                                            <div className="form-floating mx-4 mt-1">
-                                                <input
-                                                    type="url"
-                                                    className="form-control mb-3"
-                                                    id="logo"
-                                                    name="logo"
-                                                    placeholder="logo"
-                                                    defaultValue={inputs.logo}
-                                                />
-                                                <label htmlFor="postal">Logo</label>
-                                            </div>
                                         </div>
                                         </div>
                                     </div>
