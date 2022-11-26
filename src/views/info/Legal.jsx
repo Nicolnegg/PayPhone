@@ -12,13 +12,13 @@ const Legal = () => {
                     <div>
                         <h3 className="welcome1 fw-bold">Términos y Condiciones</h3>
                         <p className="w-75 mx-auto">
-                            Frase de terminos y condiciones
                             <br/>
                             <br/>
                             <ol>
 
                                 <li>
-                                    Bla bla bla de quien va a usar la aplicación
+                                Al comprar un artículo, aceptas que: (i) eres responsable de leer el listado completo del artículo antes de comprometerte a comprarlo: (ii) celebras un contrato legalmente vinculante para comprar un artículo cuando te comprometed a comprar un artículo y completar el proceso de check-out.
+                                Los precios que cobramos por usar nuestros servicios / para nuestros productos se enumeran en  la página web. Nos reservamos el derecho de cambiar nuestros precios para los productos que se muestran en cualquier momento y de corregir los errores de precios que pueden ocurrir inadvertidamente. Información adicional sobre precios e impuestos sobre las ventas está disponible en la página de pagos. 
 
                                 </li>
                                 <br/>

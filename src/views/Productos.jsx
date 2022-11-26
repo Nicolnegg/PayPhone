@@ -2,6 +2,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { getAllProducts } from "../api/products";
 import bg from "../assets/images/fondo.png";
+import { agregarItem } from "../api/canasta";
+import { getAccessToken } from "../api/auth";
+import jwtDecode from "jwt-decode";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -37,26 +41,31 @@ export default function Products() {
           <input type="search" name="" id="" />
         </form>
         <div className="d-flex gap-2">
-          <div
-            className="position-relative p-2 rounded"
-            style={{ background: "#ff914d" }}
-          >
-            <i class="bi bi-cart text-white" aria-label="Carrito de compras" />
-            {count > 0 && (
-              <span
-                className="position-absolute d-flex justify-content-center align-items-center bg-white rounded-circle"
-                style={{
-                  top: "-.5rem",
-                  right: "-.5rem",
-                  fontSize: ".8rem",
-                  minWidth: "1.3rem",
-                  height: "1.3rem",
-                }}
-              >
-                {count}
-              </span>
-            )}
-          </div>
+          <Link to="../carrito">
+            <div
+              className="position-relative p-2 rounded"
+              style={{ background: "#ff914d" }}
+            >
+              <i
+                class="bi bi-cart text-white"
+                aria-label="Carrito de compras"
+              />
+              {count > 0 && (
+                <span
+                  className="position-absolute d-flex justify-content-center align-items-center bg-white rounded-circle"
+                  style={{
+                    top: "-.5rem",
+                    right: "-.5rem",
+                    fontSize: ".8rem",
+                    minWidth: "1.3rem",
+                    height: "1.3rem",
+                  }}
+                >
+                  {count}
+                </span>
+              )}
+            </div>
+          </Link>
           <button
             className="btn"
             aria-label="Limpiar carrito"
@@ -75,7 +84,7 @@ export default function Products() {
             gap: "2rem",
           }}
         >
-          {products.map(({ nombre, imagen, precio_venta }) => (
+          {products.map(({ producto_id, nombre, imagen, precio_venta }) => (
             <article
               style={{
                 width: "20rem",
@@ -106,7 +115,15 @@ export default function Products() {
                   </button>
                   <button
                     className="btn"
-                    onClick={() => setCount((c) => c + 1)}
+                    onClick={() => {
+                      const itemData = {
+                        userId: jwtDecode(getAccessToken()).id,
+                        product_id: producto_id,
+                        cantidad: 1,
+                      };
+                      setCount((c) => c + 1);
+                      agregarItem(itemData);
+                    }}
                     style={{ background: "#ff914d" }}
                   >
                     Anadir al carrito

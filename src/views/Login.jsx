@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { iniciar_sesion } from "../api/user";
 import { TOKEN } from "../utils/tokens";
 import Logo from "../assets/images/Logo.png";
 import Background from "../assets/images/fondo.png";
 import { showHide } from "../utils/passwordVisibility";
 import jwtDecode from "jwt-decode";
 import ModalError from "../components/ModalError";
+import { axios } from "../libs/axios";
+import useAuth from "../hooks/useAuth";
 
 function Login() {
   const navigate = useNavigate();
-
-  const error = localStorage.getItem("ERR");
+  const { checkSession } = useAuth();
+  const [error, setError] = useState(null);
 
   const style = {
     backgroundImage: `url(${Background})`,
@@ -35,31 +36,25 @@ function Login() {
     });
   };
 
-  function refreshPage() {
-    window.location.reload();
-  }
-
   const login = async (e) => {
     e.preventDefault();
-    const result = await iniciar_sesion(inputs);
+    setError(null);
 
-    if (result === "Nombre de usuario incorrecto.") {
-      localStorage.setItem("ERR", result);
-      refreshPage();
-    } else if (result === "La contraseña es incorrecta.") {
-      localStorage.setItem("ERR", result);
-      refreshPage();
-    } else if (result === "Por favor ingrese todos los campos.") {
-      localStorage.setItem("ERR", result);
-      refreshPage();
+    const { data: res } = await axios.post("/login", inputs);
+    const { msj: msg, data } = res;
+
+    if (!data) {
+      return setError(msg);
+    }
+
+    const free = jwtDecode(data.token);
+    localStorage.setItem(TOKEN, data.token);
+    checkSession();
+
+    if (free.isAdmin) {
+      navigate("/admin");
     } else {
-      const free = jwtDecode(result);
-      localStorage.setItem(TOKEN, result);
-      if (free.isAdmin) {
-        window.location.href = "admin";
-      } else {
-        window.location.href = "usuario/productos";
-      }
+      navigate("/usuario/eleccionSupermercado");
     }
   };
 
@@ -113,29 +108,24 @@ function Login() {
         </form>
 
         <div className="h3 mb-3 fw-normal">
-              
-              <Link to="../localhost8080/google" className="badge mb=2">
-                <button
-                  className="btn btn-lg btn-primary"
-                  type="submit"
-                  >
-                  <i class="bi bi-google"></i>
-                </button>
-              </Link>
-              
+          <Link to="/google" className="badge mb=2">
+            <button className="btn btn-lg btn-primary" type="submit">
+              <i class="bi bi-google"></i>
+            </button>
+          </Link>
         </div>
 
         <div className="h3 mb-3 fw-normal">
           <p>
             ¿No tienes cuenta?
-            <a href="/registro" className="badge mt-4">
+            <a href="/registro" className="badge mt-1">
               Regístrate
             </a>
           </p>
         </div>
 
-        <div className="h3 mb-3 fw-normal">
-          <a href="/" className="mid-badge mt-4">
+        <div className="h3 mb-2 fw-normal">
+          <a href="/" className="mid-badge mt-2">
             <i className="bi bi-house-door-fill"></i>
           </a>
         </div>

@@ -1,5 +1,5 @@
 export function subirImagen(formdata){
-    const url = '/image/upload';
+    const url = 'http://localhost:8000/image/upload';
       const params = {
           method: "POST",
           body: formdata,
@@ -14,7 +14,7 @@ export function subirImagen(formdata){
   }
 
   export function unirImagen(id, data){
-    const url = '/post/' + id + '/addImage';
+    const url = 'http://localhost:8000/post/' + id + '/addImage';
       const params = {
           method: "POST",
           body: JSON.stringify(data),
@@ -34,7 +34,7 @@ export function subirImagen(formdata){
   export function imagenPersona(id, data){
     console.log("esto es id " + id)
     console.log("data " + data.thumbnailUrl)
-    const url = '/user/' + id + '/addImage';
+    const url = 'http://localhost:8000/user/' + id + '/addImage';
       const params = {
           method: "POST",
           body: JSON.stringify(data),
