@@ -7,11 +7,14 @@ import {registro} from "../api/user";
 import ModalError from "../components/ModalError";
 import { axios } from "../libs/axios";
 import { Link, useNavigate } from "react-router-dom";
+import { TOKEN } from "../utils/tokens";
+import useAuth from "../hooks/useAuth";
 
 
 
 const Registro = () => {
     const navigate = useNavigate();
+    const { checkSession } = useAuth();
 
     const error = localStorage.getItem("ERR");
     const [setError] = useState(null);
@@ -97,7 +100,25 @@ const Registro = () => {
                         console.log('error')
                         return error;
                     }else{
+                        
+                        const inputs2 = {
+                            correo: inputs.correo,
+                            contrasenia: inputs.contrasenia,
+                        };
+                        console.log('todo')
+                        console.log(inputs2)
+                        const { data: res } = await axios.post("/login", inputs2);
+                        console.log(res)
+                        const { msj: msg, data } = res;
+                        console.log('si')
+                        if (!data) {
+                            return setError(msg);
+                        }
+                        localStorage.setItem(TOKEN, data.token);
                         navigate("/registro-admin");
+                        //checkSession();
+                        console.log('perfecto')
+                        
                     }
                 }
                 else{
