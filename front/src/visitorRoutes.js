@@ -7,6 +7,7 @@ import Buscar from "./views/Buscar";
 import Visitante from "./layouts/Visitante";
 import ExtraInfo from "./views/ExtraInfo";
 import EleccionSupermercado from "./views/EleccionSupermercado";
+import Usuario from "./layouts/Usuario";
 
 const routesVisitante = [
 
@@ -19,11 +20,6 @@ const routesVisitante = [
         path: '/registro',
         component: Registro,
         layout: Visitante
-    },
-    {
-        path: '/registro-admin',
-        component: RegistroAdmin,
-        layout: Visitante,
     },
     {
         path: '/clave/:action',
@@ -49,6 +45,10 @@ const routesVisitante = [
         path: '/eleccionSupermercado',
         component: EleccionSupermercado,
         layout: Visitante,
+    },
+    {
+        path: '/registro-admin',
+        component: RegistroAdmin,
     }
 
 ]
