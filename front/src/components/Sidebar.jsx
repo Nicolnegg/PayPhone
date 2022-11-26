@@ -225,7 +225,6 @@ function Sidebar(props) {
           />
         </Link>
       </div>
-      <div className="top mt-3">{anuncio(rol)}</div>
       <div className="center mt-5">{buildMenu(rol)}</div>
       <div className="bottom mt-auto">{buildBottom(rol)}</div>
     </Sider>
