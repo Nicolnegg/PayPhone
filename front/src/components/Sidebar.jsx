@@ -56,6 +56,12 @@ function Sidebar(props) {
   }
 
   function buildMenu(rol) {
+    if (rol == "/adminn")
+      return(
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKeys]}>
+          {anuncio(rol)}
+        </Menu>
+      )
     if (rol === "/")
       return (
         <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKeys]}>
