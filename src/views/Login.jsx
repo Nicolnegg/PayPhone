@@ -14,8 +14,9 @@ import { logout } from "../api/auth";
 
 function Login() {
 
-  logout();
-  navigate('/login');
+  if(logout()){
+    navigate('/login');
+  }
   const navigate = useNavigate();
   const { checkSession } = useAuth();
   const [error, setError] = useState(null);
