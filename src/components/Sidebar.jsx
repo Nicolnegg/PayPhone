@@ -5,7 +5,6 @@ import { logout } from "../api/auth";
 import MenuBackground from "../assets/images/menu-lat.png";
 import Logo from "../assets/images/Logo.png";
 import Pay from "../assets/images/Icono_web.png";
-import exito from "../assets/images/exito.png";
 
 function Sidebar(props) {
   const style = {
@@ -101,16 +100,6 @@ function Sidebar(props) {
     if (rol === "/usuario")
       return (
         <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKeys]}>
-          <div className="top mt-3">
-            <Link to={rol}>
-              <img
-                className="logo d-flex justify-content-center"
-                src={exito}
-                alt="Exito"
-              />
-            </Link>
-          </div>
-
           <Menu.Item key="1">
             <Link to="../productos">
               <span>Éxito</span>

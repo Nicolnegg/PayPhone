@@ -25,9 +25,9 @@ const MisVentas = () => {
           <h5 className="text-center welcome2 mb-3 fw-bold">
             Estos son los Supermercados asociados:
           </h5>
-          <h2 className="welcome fw-bold">
+          <h2 className="big-icon fw-bold">
             Tu empresa todavia no sale en esta parte, ya que no se ha aceptado,
-            Gracias por esperar c:
+            Gracias por esperar.
           </h2>
           <div>
             <div className="top mt-3">

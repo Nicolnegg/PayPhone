@@ -50,7 +50,7 @@ const RegistroAdmin = () => {
             notification["success"]({
                 message: "Registro correcto"
             });
-            navigate("/adminn");
+            navigate("/adminn/misVentas");
         } else {
             notification["error"]({
             message: "Error en el registro"
@@ -83,17 +83,6 @@ const RegistroAdmin = () => {
                             <div className="col">
                                 <div className="row">
                                     <div className="col d-flex">
-                                        <div className="form-floating mx-4 mt-2">
-                                            <input
-                                                type="text"
-                                                className="form-control mb-3"
-                                                id="usuario_id"
-                                                name="usuario_id"
-                                                placeholder="ID de la empresa"
-                                                defaultValue={inputs.usuario_id}
-                                            />
-                                            <label htmlFor="pais">ID de la empresa</label>
-                                        </div>
                                         <div className="form-floating mx-4 mt-2">
                                             <input
                                                 type="text"
