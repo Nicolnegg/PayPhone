@@ -15,6 +15,7 @@ import { logout } from "../api/auth";
 function Login() {
 
   if(logout()){
+    console.log('Si entra');
     navigate('/login');
   }
   const navigate = useNavigate();
