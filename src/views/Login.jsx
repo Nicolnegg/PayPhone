@@ -19,7 +19,6 @@ function Login() {
   const [error, setError] = useState(null);
 
   logout()
-  navigate('/login');
   const style = {
     backgroundImage: `url(${Background})`,
     backgroundPosition: "center center",
