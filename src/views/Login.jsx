@@ -8,8 +8,13 @@ import jwtDecode from "jwt-decode";
 import ModalError from "../components/ModalError";
 import { axios } from "../libs/axios";
 import useAuth from "../hooks/useAuth";
+import { logout } from "../api/auth";
+
+
 
 function Login() {
+
+  logout();
   const navigate = useNavigate();
   const { checkSession } = useAuth();
   const [error, setError] = useState(null);
