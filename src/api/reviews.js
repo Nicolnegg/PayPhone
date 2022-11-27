@@ -16,7 +16,7 @@ export function starRating(num){
 }
 
 export function getReview(userId,orderId){
-    const url = 'http://localhost:8000/review/' + userId + "/" + orderId;
+    const url = 'https://payphonecol.herokuapp.com/review/' + userId + "/" + orderId;
     const params = {
         method: "GET",
         headers: {
@@ -33,7 +33,7 @@ export function getReview(userId,orderId){
 }
 
 export function deleteReview(id){
-    const url = 'http://localhost:8000/review/delete/' + id;
+    const url = 'https://payphonecol.herokuapp.com/review/delete/' + id;
     const params = {
         method: "POST",
         headers: {
@@ -50,7 +50,7 @@ export function deleteReview(id){
 }
 
 export function addReview(data){
-    const url = 'http://localhost:8000/review';
+    const url = 'https://payphonecol.herokuapp.com/review';
     const params = {
         method: "POST",
         body: JSON.stringify(data),
@@ -68,7 +68,7 @@ export function addReview(data){
 }
 
 export function updateReview(id, data){
-    const url = 'http://localhost:8000/review/update/' + id;
+    const url = 'https://payphonecol.herokuapp.com/review/update/' + id;
     const params = {
         method: "POST",
         body: JSON.stringify(data),

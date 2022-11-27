@@ -38,7 +38,7 @@ return(
                   anuncio.map((anuncio)=>(
                     <tr>
                       <td>
-                      <img src={`http://localhost:8000/images/${anuncio.thumbnailUrl}`} alt="Imagen" width="180" height="180"/>
+                      <img src={`https://payphonecol.herokuapp.com/images/${anuncio.thumbnailUrl}`} alt="Imagen" width="180" height="180"/>
                       </td>
                       <td>
                         {anuncio.postTitle}
