@@ -15,7 +15,7 @@ import ModalAnuncio from "../ModalAnuncio";
   }, [])
 
   function volver(){
-    window.location.href = "./login";
+    window.location.href = "buscar";
   }
 
   
@@ -38,7 +38,7 @@ return(
                   anuncio.map((anuncio)=>(
                     <tr>
                       <td>
-                      <img src={`https://payphonecol.herokuapp.com/images/${anuncio.thumbnailUrl}`} alt="Imagen" width="180" height="180"/>
+                      <img src={`http://localhost:8000/images/${anuncio.thumbnailUrl}`} alt="Imagen" width="180" height="180"/>
                       </td>
                       <td>
                         {anuncio.postTitle}

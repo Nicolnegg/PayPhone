@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { useNavigate} from 'react-router-dom'
 
-const URI = 'https://payphonecol.herokuapp.com/login'
+const URI = 'http://localhost:8000/login'
 
 const Login = () => {
   const [correo, setCorreo] = useState ('');

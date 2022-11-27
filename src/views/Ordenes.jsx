@@ -58,7 +58,7 @@ const Ordenes = () => {
                               orden.OrderItems.map((item)=>(
                                   <tr>
                                       <td> 
-                                        <img src={`https://payphonecol.herokuapp.com/images/${item.Post.thumbnailUrl}`} alt="Imagen" width="180" height="180"/>
+                                        <img src={`http://localhost:8000/images/${item.Post.thumbnailUrl}`} alt="Imagen" width="180" height="180"/>
                                       </td>
                                       <td>
                                           {item.Post.PostTitle}

@@ -4,6 +4,7 @@ import { Layout, Menu } from "antd";
 import { logout } from "../api/auth";
 import MenuBackground from "../assets/images/menu-lat.png";
 import Logo from "../assets/images/Logo.png";
+import Pay from "../assets/images/Icono_web.png";
 import exito from "../assets/images/exito.png";
 
 function Sidebar(props) {
@@ -32,35 +33,21 @@ function Sidebar(props) {
       return (
         <>
           <div className="top mt-3">
+          <Menu.Item key="1">
             <Link to={rol}>
               <img
                 className="logo d-flex justify-content-center"
-                src={exito}
-                alt="Exito"
+                src={Pay}
+                alt="Payphone"
               />
             </Link>
-          </div>
-          <Menu.Item key="6">
-            <Link to="../tarifa">
-              <span>
-                <i className="bi bi-megaphone-fill me-3"> </i>
-                Anunciarme
-              </span>
-            </Link>
           </Menu.Item>
-          <Menu.Item key="7">
-            <Link to="../misVentas">
+          </div>
+          <Menu.Item key="2">
+            <Link to="/adminn/misVentas">
               <span>
                 <i className="bi bi-cash-coin me-3"> </i>
                 Mis ventas
-              </span>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="8">
-            <Link to="../eleccionSupermercado">
-              <span>
-                <i class="bi bi-arrow-right-circle-fill me-3"></i>
-                Elección de supermercado
               </span>
             </Link>
           </Menu.Item>
@@ -70,6 +57,12 @@ function Sidebar(props) {
   }
 
   function buildMenu(rol) {
+    if (rol == "/adminn")
+      return(
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKeys]}>
+          {anuncio(rol)}
+        </Menu>
+      );
     if (rol === "/")
       return (
         <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKeys]}>
@@ -105,7 +98,7 @@ function Sidebar(props) {
           </Menu.Item>
         </Menu>
       );
-    else
+    if (rol === "/usuario")
       return (
         <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKeys]}>
           <div className="top mt-3">
@@ -119,7 +112,7 @@ function Sidebar(props) {
           </div>
 
           <Menu.Item key="1">
-            <Link to="../Productos">
+            <Link to="../productos">
               <span>Éxito</span>
             </Link>
           </Menu.Item>
@@ -147,7 +140,7 @@ function Sidebar(props) {
               </span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="5">
+          <Menu.Item key="6">
             <Link to="../recomendaciones">
               <span>
                 <i className="bi bi-bookmark-heart-fill me-3"> </i>
@@ -155,7 +148,7 @@ function Sidebar(props) {
               </span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="6">
+          <Menu.Item key="7">
             <Link to="../carrito">
               <span>
                 <i className="bi bi-cart-dash-fill me-3"> </i>
@@ -163,7 +156,7 @@ function Sidebar(props) {
               </span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="7">
+          <Menu.Item key="8">
             <Link to="../eleccionSupermercado">
               <span>
                 <i class="bi bi-arrow-right-circle-fill me-3"></i>
@@ -231,7 +224,6 @@ function Sidebar(props) {
           />
         </Link>
       </div>
-
       <div className="center mt-5">{buildMenu(rol)}</div>
       <div className="bottom mt-auto">{buildBottom(rol)}</div>
     </Sider>

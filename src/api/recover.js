@@ -1,5 +1,5 @@
 export function recoverPassword(data,action){
-    let url = 'https://payphonecol.herokuapp.com/recoveryPassword';
+    let url = 'http://localhost:8000/recoveryPassword';
     if (action === "recuperar") {url += '/true'}
     else {url += '/false'}
     const params = {
@@ -19,7 +19,7 @@ export function recoverPassword(data,action){
 }
 
 export function resetPassword(id, data, token){
-    const url = 'https://payphonecol.herokuapp.com/resetPassword/' + id + '/' + token;
+    const url = 'http://localhost:8000/resetPassword/' + id + '/' + token;
     const params = {
         method: "POST",
         body: JSON.stringify(data),

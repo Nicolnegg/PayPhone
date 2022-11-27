@@ -1,5 +1,5 @@
 export function buscarCategoria() {
-  const url = "https://payphonecol.herokuapp.com/categories";
+  const url = "http://localhost:8000/categories";
   const params = {
     method: "GET",
     headers: {
@@ -17,7 +17,7 @@ export function buscarCategoria() {
 }
 
 export function buscarAdmin() {
-  const url = "https://payphonecol.herokuapp.com/admin";
+  const url = "http://localhost:8000/admin";
   const params = {
     method: "GET",
     headers: {
@@ -35,7 +35,7 @@ export function buscarAdmin() {
 }
 
 export function buscarAnuncios() {
-  const url = "https://payphonecol.herokuapp.com/post/getAll";
+  const url = "http://localhost:8000/post/getAll";
   const params = {
     method: "GET",
     headers: {
@@ -53,7 +53,7 @@ export function buscarAnuncios() {
 }
 
 export function infoAnuncio(id) {
-  const url = "https://payphonecol.herokuapp.com/post/" + id;
+  const url = "http://localhost:8000/post/" + id;
   const params = {
     method: "POST",
     headers: {
@@ -71,7 +71,7 @@ export function infoAnuncio(id) {
 }
 
 export function perfilAdmin(id) {
-  const url = "https://payphonecol.herokuapp.com/admin/profile/" + id;
+  const url = "http://localhost:8000/admin/profile/" + id;
   const params = {
     method: "GET",
     headers: {
@@ -89,7 +89,7 @@ export function perfilAdmin(id) {
 }
 
 export function buscarAnunciosPorCategoria(id) {
-  const url = "https://payphonecol.herokuapp.com/categories/" + id;
+  const url = "http://localhost:8000/categories/" + id;
   const params = {
     method: "GET",
     headers: {
@@ -107,7 +107,7 @@ export function buscarAnunciosPorCategoria(id) {
 }
 
 export function buscarAnunciosPorPalabra(palabra) {
-  const url = "https://payphonecol.herokuapp.com/search?keyword=" + palabra;
+  const url = "http://localhost:8000/search?keyword=" + palabra;
   const params = {
     method: "GET",
     headers: {
@@ -125,7 +125,7 @@ export function buscarAnunciosPorPalabra(palabra) {
 }
 
 export function buscarAdminPorPalabra(palabra) {
-  const url = "https://payphonecol.herokuapp.com/searchAdmin?keyword=" + palabra;
+  const url = "http://localhost:8000/searchAdmin?keyword=" + palabra;
   const params = {
     method: "GET",
     headers: {
@@ -143,7 +143,7 @@ export function buscarAdminPorPalabra(palabra) {
 }
 
 export function buscarRecomendaciones() {
-  const url = "https://payphonecol.herokuapp.com/recomendados";
+  const url = "http://localhost:8000/recomendados";
   const params = {
     method: "GET",
     headers: {
