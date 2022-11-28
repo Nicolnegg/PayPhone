@@ -102,7 +102,6 @@ function Sidebar(props) {
         <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKeys]}>
           <Menu.Item key="1">
             <Link to="../productos">
-              <span>Éxito</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="2">
