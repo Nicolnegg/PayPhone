@@ -329,7 +329,7 @@ const Registro = () => {
                             <label> 
                                 <Link to="../informacionExtra">
                                     <span>
-                                        <i className="bi bi-search me-3"> </i>
+                                        <i className="me-3"> </i>
                                         Acepta terminos y condiciones.
                                     </span>
                                  </Link>
