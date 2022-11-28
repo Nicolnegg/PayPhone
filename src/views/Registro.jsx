@@ -320,6 +320,21 @@ const Registro = () => {
                             />
                             <label htmlFor="free"> Deseo registrarme como admin</label>
                         </div>
+                        <div className="w-75 mx-auto mt-4 h5 fw-bold free">
+                            <input
+                                type="checkbox"
+                                className="me-3"
+                                
+                            />
+                            <label> 
+                                <Link to="../informacionExtra">
+                                    <span>
+                                        <i className="bi bi-search me-3"> </i>
+                                        Acepta terminos y condiciones.
+                                    </span>
+                                 </Link>
+                            </label>
+                        </div>
                     </div>
                 </div>
                 <div className="row g-2 my-3">
