@@ -113,14 +113,6 @@ function Login() {
         </form>
 
         <div className="h3 mb-3 fw-normal">
-          <Link to="/google" className="badge mb=2">
-            <button className="btn btn-lg btn-primary" type="submit">
-              <i class="bi bi-google"></i>
-            </button>
-          </Link>
-        </div>
-
-        <div className="h3 mb-3 fw-normal">
           <p>
             ¿No tienes cuenta?
             <a href="/registro" className="badge mt-1">
