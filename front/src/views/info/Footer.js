@@ -42,6 +42,10 @@ export const Footer = () => {
                     <h6 className="text-white mx-3">Payphone@gmail.com</h6>
                 </div>
             </div>
+            <div className="col">
+                    <a target="_blank" className="text-white mx-3" href="https://drive.google.com/file/d/1pdlXhDFY1eMf1o8VP2Gd2yloL8BXrtO6/view?usp=share_link"><i className= "bi bi-google big-icon mx-3"></i></a>
+                    <h6 className="text-white mx-3">Manual de usuario</h6>
+            </div>
             <h5 className="footer_element text-decoration-underline">
                 ¿Desear donar para contibuir a este proyecto?
                 Haz clic a continuación
