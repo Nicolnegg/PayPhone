@@ -26,15 +26,15 @@ export const Footer = () => {
                     <h6 className="text-white mx-3">PayPhone</h6>
                 </div>
                 <div className="col">
-                    <a target="_blank" className="text-white mx-3" href="https://www.instagram.com/manuelma_4/"><i className="fa fa-instagram big-icon mx-3"></i></a>
+                    <a target="_blank" className="text-white mx-3" href="https://instagram.com/payphone.appweb?igshid=YmMyMTA2M2Y="><i className="fa fa-instagram big-icon mx-3"></i></a>
                     <h6 className="text-white mx-3">@Payphone</h6>
                 </div>
                 <div className="col">
-                    <a target="_blank" className="text-white mx-3" href="https://www.facebook.com/manueldavid.maya/"><i className="fa fa-facebook big-icon mx-3"></i></a>
+                    <a target="_blank" className="text-white mx-3" href="https://www.facebook.com/profile.php?id=100087961105438&is_tour_dismissed=true"><i className="fa fa-facebook big-icon mx-3"></i></a>
                     <h6 className="text-white mx-3">@Payphone</h6>
                 </div>
                 <div className="col">
-                    <a target="_blank" className="text-white mx-3" href="https://twitter.com/ManuelD_Maya"><i className="fa fa-twitter big-icon mx-3"></i></a>
+                    <a target="_blank" className="text-white mx-3" href="https://twitter.com/Payphonecol1?t=Erg-ax8vmcnd8mltloW5tQ&s=09"><i className="fa fa-twitter big-icon mx-3"></i></a>
                     <h6 className="text-white mx-3">@Payphone</h6>
                 </div>
                 <div className="col">
