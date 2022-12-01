@@ -38,7 +38,7 @@ export const Footer = () => {
                     <h6 className="text-white mx-3">@Payphone</h6>
                 </div>
                 <div className="col">
-                    <a target="_blank" className="text-white mx-3" href="mailto:manueldmaya@gmail.com"><i className="fa fa-envelope big-icon mx-3"></i></a>
+                    <a target="_blank" className="text-white mx-3" href="mailto:payphonecol@gmail.com"><i className="fa fa-envelope big-icon mx-3"></i></a>
                     <h6 className="text-white mx-3">Payphone@gmail.com</h6>
                 </div>
             </div>
